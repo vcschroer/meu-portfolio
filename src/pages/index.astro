@@ -7,7 +7,7 @@
 const HEADER_HEIGHT = "350px"; 
 
 // Cor do Fundo Geral da Página
-const BG_COLOR = "#fffaf0";       
+const BG_COLOR = "#fffaf0";        
 
 // Tons de Verde para Botões, Badges e Detalhes
 const GREEN_PRIMARY = "#71f082";  
@@ -291,20 +291,25 @@ const contactLetters = createPaperLetters(contactText);
               </h2>
             </div>
 
-            <!-- TEXTO ALINHADO À ESQUERDA -->
-            <p class="font-medium text-lg text-zinc-800 leading-relaxed">
-              Aqui exemplo
-            </p>
+            <!-- TEXTO ALINHADO À ESQUERDA (AGORA DIVIDIDO E MAIS FORTE) -->
+            <div class="font-bold text-lg text-black leading-relaxed space-y-4">
+              <p>
+                Me chamo Vittória e tenho 20 anos, sou uma programadora focada em desenvolvimento de jogos e apaixonada por criar sistemas interativos, eficientes e bem estruturados. Tenho experiência prática na construção de arquiteturas de gameplay, mecânicas 2D e 3D e otimização de código.
+              </p>
+              <p>
+                A criação de jogos me deu uma base sólida em Orientação a Objetos, lógica matemática e performance. Por isso, transito facilmente entre a engenharia de jogos e o desenvolvimento de software em geral, sempre focado em entregar código limpo e funcional.
+              </p>
+            </div>
           </div>
 
-          <!-- COLUNA DA DIREITA: FERRAMENTAS / LINGUAGENS / APLICATIVOS -->
-          <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4 text-left">
+          <!-- COLUNA DA DIREITA: FERRAMENTAS / LINGUAGENS / APLICATIVOS (AGORA CENTRALIZADO) -->
+          <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4 text-center">
             <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2">
               Ferramentas & Tecnologias
             </h3>
 
-            <!-- LISTA DE BADGES TOTALMENTE VERDES -->
-            <div class="flex flex-wrap gap-2 pt-1">
+            <!-- LISTA DE BADGES TOTALMENTE VERDES (AGORA CENTRALIZADOS) -->
+            <div class="flex flex-wrap justify-center gap-2 pt-1">
               <span 
                 class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
                 style={`background-color: ${GREEN_PRIMARY};`}
@@ -315,7 +320,7 @@ const contactLetters = createPaperLetters(contactText);
                 class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
                 style={`background-color: ${GREEN_SECONDARY};`}
               >
-                Unity
+                HTML
               </span>
               <span 
                 class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
@@ -327,13 +332,37 @@ const contactLetters = createPaperLetters(contactText);
                 class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
                 style={`background-color: ${GREEN_SECONDARY};`}
               >
-                Exemplo
+                Astro
               </span>
               <span 
                 class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
                 style={`background-color: ${GREEN_PRIMARY};`}
               >
-                Exemplo
+                Unity
+              </span>
+               <span 
+                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                style={`background-color: ${GREEN_PRIMARY};`}
+              >
+                Godot
+              </span>
+               <span 
+                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                style={`background-color: ${GREEN_PRIMARY};`}
+              >
+                After Effects
+              </span>
+               <span 
+                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                style={`background-color: ${GREEN_PRIMARY};`}
+              >
+                Premiere
+              </span>
+               <span 
+                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                style={`background-color: ${GREEN_PRIMARY};`}
+              >
+                Blender
               </span>
             </div>
           </div>
