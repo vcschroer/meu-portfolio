@@ -77,24 +77,20 @@ interface Experience {
 // SUAS EXPERIÊNCIAS PROFISSIONAIS (Adicione ou altere aqui)
 const experiences: Experience[] = [
   {
-    company: "Grupo RBS Programadora",
-    logo: "prints/grupo_rbs.png",
+    company: "Grupo RBS - Programadora",
+    logo: "prints/rbs-tv-logo.png",
   },
   {
-    company: "Bad Moth Programadora",
-    logo: "prints/badmoth_studios_logo.jpg",
+    company: "Bad Moth - Programadora",
+    logo: "prints/badmoth.jpeg",
   },
   {
-    company: "Little Devil Artista Técnico",
-    logo: "prints/little_devil.jpg",
+    company: "Little Devil - Artista Técnico",
+    logo: "prints/little_devil-Photoroom.png",
   },
     {
-    company: "Editora de Vídeos Freelancer",
+    company: "Editora de Vídeos - Freelancer",
     logo: "prints/camera_icon.png",
-  },
-    {
-    company: "Formação Jogos Digitais 02/2027",
-    logo: "prints/feevale_logo.jpg",
   },
 ];
 
@@ -290,43 +286,78 @@ const contactLetters = createPaperLetters(contactText);
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           
-          <!-- COLUNA DA ESQUERDA: TÍTULO E TEXTO ALINHADOS À ESQUERDA -->
-          <div class="space-y-4 text-left">
-            <!-- TÍTULO SOBRE MIM COM LETRAS DE JORNAL COLORIDAS -->
-            <div class="flex items-center justify-start">
-              <h2 class="text-2xl md:text-3xl uppercase flex flex-wrap gap-1.5 items-center py-2">
-                {aboutLetters.map((item) => (
-                  item.letter === " " ? (
-                    <span class="w-3 md:w-5"></span>
-                  ) : (
-                    <span 
-                      class={`inline-flex items-center justify-center border-2 border-black text-black px-2 py-0.5 md:px-2.5 md:py-1 rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-125 hover:z-20 transition-transform duration-150 cursor-pointer ${ENABLE_LETTER_ANIMATION ? 'animate-paper-cutout' : ''} ${item.fontStyle}`}
-                      style={`
-                        --base-rot: ${item.baseRot};
-                        --jitter-rot: ${item.jitterRot};
-                        --offset-x: ${item.offsetX};
-                        --offset-y: ${item.offsetY};
-                        animation-delay: ${item.delay};
-                        background-color: ${item.bgColor};
-                        transform: rotate(${item.baseRot});
-                      `}
-                    >
-                      {item.letter}
-                    </span>
-                  )
-                ))}
-              </h2>
+          <!-- COLUNA DA ESQUERDA: TÍTULO, TEXTO E FORMAÇÃO -->
+          <div class="space-y-6 text-left flex flex-col justify-between h-full">
+            <div class="space-y-4">
+              <!-- TÍTULO SOBRE MIM COM LETRAS DE JORNAL COLORIDAS -->
+              <div class="flex items-center justify-start">
+                <h2 class="text-2xl md:text-3xl uppercase flex flex-wrap gap-1.5 items-center py-2">
+                  {aboutLetters.map((item) => (
+                    item.letter === " " ? (
+                      <span class="w-3 md:w-5"></span>
+                    ) : (
+                      <span 
+                        class={`inline-flex items-center justify-center border-2 border-black text-black px-2 py-0.5 md:px-2.5 md:py-1 rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-125 hover:z-20 transition-transform duration-150 cursor-pointer ${ENABLE_LETTER_ANIMATION ? 'animate-paper-cutout' : ''} ${item.fontStyle}`}
+                        style={`
+                          --base-rot: ${item.baseRot};
+                          --jitter-rot: ${item.jitterRot};
+                          --offset-x: ${item.offsetX};
+                          --offset-y: ${item.offsetY};
+                          animation-delay: ${item.delay};
+                          background-color: ${item.bgColor};
+                          transform: rotate(${item.baseRot});
+                        `}
+                      >
+                        {item.letter}
+                      </span>
+                    )
+                  ))}
+                </h2>
+              </div>
+
+              <!-- DIVISÓRIA SÓLIDA PRETA ABAIXO DO TÍTULO -->
+              <div class="border-b-4 border-black my-2"></div>
+
+              <!-- TEXTO ALINHADO À ESQUERDA -->
+              <div class="font-bold text-lg text-black leading-relaxed space-y-4">
+                <p>
+                  Me chamo Vittória e tenho 20 anos, sou uma programadora focada em desenvolvimento de jogos e apaixonada por criar sistemas interativos, eficientes e bem estruturados. Tenho experiência prática na construção de arquiteturas de gameplay, mecânicas 2D e 3D e otimização de código.
+                </p>
+                <p>
+                  A criação de jogos me deu uma base sólida em orientação a objetos, lógica matemática e performance. Por isso, transito facilmente entre a engenharia de jogos e o desenvolvimento de software em geral, sempre focada em entregar código limpo e funcional.
+                </p>
+              </div>
             </div>
 
-            <!-- TEXTO ALINHADO À ESQUERDA -->
-            <div class="font-bold text-lg text-black leading-relaxed space-y-4">
-              <p>
-                Me chamo Vittória e tenho 20 anos, sou uma programadora focada em desenvolvimento de jogos e apaixonada por criar sistemas interativos, eficientes e bem estruturados. Tenho experiência prática na construção de arquiteturas de gameplay, mecânicas 2D e 3D e otimização de código.
-              </p>
-              <p>
-                A criação de jogos me deu uma base sólida em orientação a objetos, lógica matemática e performance. Por isso, transito facilmente entre a engenharia de jogos e o desenvolvimento de software em geral, sempre focada em entregar código limpo e funcional.
-              </p>
+            <!-- DIVISÓRIA SÓLIDA PRETA ABAIXO DO TEXTO -->
+            <div class="border-b-4 border-black my-2"></div>
+
+            <!-- FORMAÇÃO ACADÊMICA -->
+            <div class="space-y-3">
+              <h3 class="font-black text-sm uppercase tracking-wider text-black flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-black rounded-full inline-block"></span>
+                Formação Acadêmica
+              </h3>
+
+              <div 
+                class="border-3 border-black p-4 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-[1.01] transition-transform duration-200 cursor-default flex flex-col md:flex-row items-start md:items-center justify-between gap-3"
+                style={`background-color: ${GREEN_PRIMARY};`}
+              >
+                <div class="space-y-1">
+                  <span class="text-base font-black uppercase text-black block tracking-tight">
+                    Jogos Digitais
+                  </span>
+                  <p class="text-xs font-bold text-black opacity-90 leading-snug">
+                    Tecnólogo em Desenvolvimento de Jogos & Sistemas Interativos
+                  </p>
+                </div>
+                
+                <span class="border-2 border-black bg-white text-black font-extrabold text-xs px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] whitespace-nowrap self-start md:self-auto">
+                  Previsão: 02/2027
+                </span>
+              </div>
             </div>
+
           </div>
 
           <!-- COLUNA DA DIREITA: SUB-SEÇÕES (FERRAMENTAS & EXPERIÊNCIAS PROFISSIONAIS) -->
@@ -414,27 +445,41 @@ const contactLetters = createPaperLetters(contactText);
               </div>
             </div>
 
-            <!-- SUB-SEÇÃO 2: EXPERIÊNCIAS PROFISSIONAIS -->
-            <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4 text-center">
-              <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2">
-                Experiências & Formações
+            <!-- SUB-SEÇÃO 2: EXPERIÊNCIAS PROFISSIONAIS (CARDS INDIVIDUAIS VERDES) -->
+            <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4">
+              <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2 text-center">
+                Experiências Profissionais
               </h3>
 
-              <div class="flex flex-wrap justify-center gap-5 pt-1">
+              <div class="space-y-3 pt-1">
                 {experiences.map((exp) => (
-                  <div class="flex flex-col items-center gap-1.5 group">
-                    <!-- Ícone Quadrado da Empresa -->
-                    <div class="w-16 h-16 border-2 border-black rounded-xl bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex items-center justify-center p-2 group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-200 cursor-pointer">
+                  <div 
+                    class="border-2 border-black p-3 rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3.5 hover:translate-x-1 transition-transform duration-150 cursor-default"
+                    style={`background-color: ${GREEN_PRIMARY};`}
+                  >
+                    <!-- Logo da Empresa (Mantido fundo branco para destaque do logo) -->
+                    <div class="w-12 h-12 border-2 border-black rounded-lg bg-white shrink-0 overflow-hidden flex items-center justify-center p-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                       <img 
                         src={exp.logo} 
                         alt={exp.company} 
-                        class="w-full h-full object-contain rounded-md"
+                        class="w-full h-full object-contain rounded-sm"
                       />
                     </div>
-                    <!-- Nome Pequeno Embaixo -->
-                    <span class="text-xs font-black uppercase text-black tracking-tight max-w-[90px] leading-tight text-center">
-                      {exp.company}
-                    </span>
+                    <!-- Nome da Empresa e Cargo -->
+                    <div class="flex flex-col text-left min-w-0 justify-center">
+                      <span class="text-sm font-black uppercase text-black tracking-tight leading-tight truncate">
+                        {exp.company}
+                      </span>
+                      {exp.role ? (
+                        <span class="text-xs font-extrabold text-black opacity-80 leading-tight">
+                          {exp.role}
+                        </span>
+                      ) : exp.title ? (
+                        <span class="text-xs font-extrabold text-black opacity-80 leading-tight">
+                          {exp.title}
+                        </span>
+                      ) : null}
+                    </div>
                   </div>
                 ))}
               </div>
