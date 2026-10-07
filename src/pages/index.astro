@@ -4,17 +4,17 @@
 // ==========================================
 
 // Altura da seção do Header / Topo
-const HEADER_HEIGHT = "350px"; 
+const HEADER_HEIGHT = "500px"; 
 
 // Cor do Fundo Geral da Página
-const BG_COLOR = "#fffaf0";        
+const BG_COLOR = "#dcfddd"; 
 
 // Tons de Verde para Botões, Badges e Detalhes
 const GREEN_PRIMARY = "#71f082";  
 const GREEN_SECONDARY = "#71f082"; 
 
 // CONFIGURAÇÃO DAS BOLINHAS DO FUNDO
-const GRID_SPEED = "6s";                  
+const GRID_SPEED = "6s"; 
 const GRID_COLOR = "rgba(0, 0, 0, 1)"; 
 
 // CONFIGURAÇÃO DA FLUTUAÇÃO SUAVE DOS CARDS / SEÇÕES
@@ -41,11 +41,11 @@ const CUTOUT_SPEED = "2s";
 // 4. Quantidade de quadros do Stop-Motion
 const CUTOUT_STEPS = 3; 
 
-// 5. Intensidade do Movimento / Tremor
+// 5. Intensidade do MOVIMENTO / Tremor
 const JITTER_INTENSITY = 1;
 
 // ==========================================
-// DADOS PESSOAIS E PROJETOS
+// DADOS PESSOAIS, EXPERIÊNCIAS E PROJETOS
 // ==========================================
 const portfolioText = "PORTFOLIO";
 const yearText = "2026";
@@ -69,24 +69,47 @@ interface Project {
   links?: Links;
 }
 
+interface Experience {
+  company: string;
+  logo: string;
+}
+
+// SUAS EXPERIÊNCIAS PROFISSIONAIS (Adicione ou altere aqui)
+const experiences: Experience[] = [
+  {
+    company: "Grupo RBS Programadora",
+    logo: "prints/grupo_rbs.png",
+  },
+  {
+    company: "Bad Moth Programadora",
+    logo: "prints/badmoth_studios_logo.jpg",
+  },
+  {
+    company: "Little Devil Artista Técnico",
+    logo: "prints/little_devil.jpg",
+  },
+    {
+    company: "Little Devil Artista Técnico",
+    logo: "prints/little_devil.jpg",
+  },
+];
+
 const projects: Project[] = [
   {
-    title: "PROJETO IV",
-    category: "Pirata",
-    description: "Mecânicas de combate e navegação em mundo aberto.",
-    tags: ["C#", "Unity"],
+    title: "STACKED PIRATES",
+    category: "Puzzle 3D isométrico de piratas procurando por um tesouro.",
+    description: "Um jogo de puzzle em que você usa seus piratas para conseguir atingir locais e passar por certas áreas atrás do seu objetivo de encontrar o baú soterrado pelo mapa. O projeto está sendo produzido para uma disciplina da faculdade e contém o foco na mecânica de utilizar a pilha de piratas para conseguir navegar no mapa e conseguir passar pelas fases. O jogo tem uma estética low-poly e tem uma estilização cartoon feita por meio de shaders e efeitos visuais. Este projeto foi feito inteiramente por mim, desde a parte visual até a parte do código.",
+    tags: ["C#", "Unity", "Shaders", "Blender"],
     youtubeId: "???",
     screenshots: [
       "prints/Capivarinha20-20Thassiane20Targino20-20Ipram2028129.png",
     ],
     links: {
-      github: "https://github.com",
-      itchio: "https://itch.io",
-      steam: "https://store.steampowered.com"
+      github: "https://github.com"
     }
   },
   {
-    title: "OUTRO JOGO",
+    title: "Spell Slot",
     category: "????",
     description: "????",
     tags: ["C#", "Unity"],
@@ -98,7 +121,7 @@ const projects: Project[] = [
       itchio: "https://itch.io"
     }
   },
-    {
+  {
     title: "OUTRO JOGO",
     category: "????",
     description: "????",
@@ -181,7 +204,7 @@ const contactLetters = createPaperLetters(contactText);
         <div class="my-auto w-full flex flex-col items-center justify-center gap-3 py-4">
           
           <!-- LINHA DE CIMA: PORTFOLIO -->
-          <h2 class="text-3xl md:text-5xl uppercase flex flex-wrap gap-2 items-center justify-center">
+          <h2 class="text-3xl md:text-7xl uppercase flex flex-wrap gap-2 items-center justify-center">
             {portfolioLetters.map((item) => (
               item.letter === " " ? (
                 <span class="w-3 md:w-5"></span>
@@ -205,7 +228,7 @@ const contactLetters = createPaperLetters(contactText);
           </h2>
 
           <!-- LINHA DE BAIXO: 2026 -->
-          <h1 class="text-4xl md:text-6xl uppercase flex flex-wrap gap-2 items-center justify-center">
+          <h1 class="text-4xl md:text-8xl uppercase flex flex-wrap gap-2 items-center justify-center">
             {yearLetters.map((item) => (
               item.letter === " " ? (
                 <span class="w-4 md:w-6"></span>
@@ -262,7 +285,7 @@ const contactLetters = createPaperLetters(contactText);
       <section class="relative bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-card-float hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            
+          
           <!-- COLUNA DA ESQUERDA: TÍTULO E TEXTO ALINHADOS À ESQUERDA -->
           <div class="space-y-4 text-left">
             <!-- TÍTULO SOBRE MIM COM LETRAS DE JORNAL COLORIDAS -->
@@ -291,80 +314,116 @@ const contactLetters = createPaperLetters(contactText);
               </h2>
             </div>
 
-            <!-- TEXTO ALINHADO À ESQUERDA (AGORA DIVIDIDO E MAIS FORTE) -->
+            <!-- TEXTO ALINHADO À ESQUERDA -->
             <div class="font-bold text-lg text-black leading-relaxed space-y-4">
               <p>
                 Me chamo Vittória e tenho 20 anos, sou uma programadora focada em desenvolvimento de jogos e apaixonada por criar sistemas interativos, eficientes e bem estruturados. Tenho experiência prática na construção de arquiteturas de gameplay, mecânicas 2D e 3D e otimização de código.
               </p>
               <p>
-                A criação de jogos me deu uma base sólida em Orientação a Objetos, lógica matemática e performance. Por isso, transito facilmente entre a engenharia de jogos e o desenvolvimento de software em geral, sempre focado em entregar código limpo e funcional.
+                A criação de jogos me deu uma base sólida em orientação a objetos, lógica matemática e performance. Por isso, transito facilmente entre a engenharia de jogos e o desenvolvimento de software em geral, sempre focada em entregar código limpo e funcional.
               </p>
             </div>
           </div>
 
-          <!-- COLUNA DA DIREITA: FERRAMENTAS / LINGUAGENS / APLICATIVOS (AGORA CENTRALIZADO) -->
-          <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4 text-center">
-            <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2">
-              Ferramentas & Tecnologias
-            </h3>
+          <!-- COLUNA DA DIREITA: SUB-SEÇÕES (FERRAMENTAS & EXPERIÊNCIAS PROFISSIONAIS) -->
+          <div class="space-y-6">
 
-            <!-- LISTA DE BADGES TOTALMENTE VERDES (AGORA CENTRALIZADOS) -->
-            <div class="flex flex-wrap justify-center gap-2 pt-1">
-              <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                C#
-              </span>
-              <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_SECONDARY};`}
-              >
-                HTML
-              </span>
-              <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                GitHub
-              </span>
-              <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_SECONDARY};`}
-              >
-                Astro
-              </span>
-              <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                Unity
-              </span>
-               <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                Godot
-              </span>
-               <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                After Effects
-              </span>
-               <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                Premiere
-              </span>
-               <span 
-                class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                Blender
-              </span>
+            <!-- SUB-SEÇÃO 1: FERRAMENTAS & TECNOLOGIAS -->
+            <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4 text-center">
+              <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2">
+                Ferramentas & Tecnologias
+              </h3>
+
+              <div class="flex flex-wrap justify-center gap-2 pt-1">
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  C#
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  Python
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_SECONDARY};`}
+                >
+                  HTML
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  GitHub
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_SECONDARY};`}
+                >
+                  Astro
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  Unity
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  Godot
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  After Effects
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  Premiere
+                </span>
+                <span 
+                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
+                  style={`background-color: ${GREEN_PRIMARY};`}
+                >
+                  Blender
+                </span>
+              </div>
             </div>
+
+            <!-- SUB-SEÇÃO 2: EXPERIÊNCIAS PROFISSIONAIS -->
+            <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4 text-center">
+              <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2">
+                Experiências Profissionais
+              </h3>
+
+              <div class="flex flex-wrap justify-center gap-5 pt-1">
+                {experiences.map((exp) => (
+                  <div class="flex flex-col items-center gap-1.5 group">
+                    <!-- Ícone Quadrado da Empresa -->
+                    <div class="w-16 h-16 border-2 border-black rounded-xl bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex items-center justify-center p-2 group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-200 cursor-pointer">
+                      <img 
+                        src={exp.logo} 
+                        alt={exp.company} 
+                        class="w-full h-full object-contain rounded-md"
+                      />
+                    </div>
+                    <!-- Nome Pequeno Embaixo -->
+                    <span class="text-xs font-black uppercase text-black tracking-tight max-w-[90px] leading-tight text-center">
+                      {exp.company}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
 
         </div>
