@@ -1,57 +1,9 @@
 ---
 // ==========================================
-// CONFIGURAÇÕES DE DESIGN E CORES
-// ==========================================
-
-// Altura da seção do Header / Topo
-const HEADER_HEIGHT = "500px"; 
-
-// Cor do Fundo Geral da Página
-const BG_COLOR = "#dcfddd"; 
-
-// Tons de Verde para Botões, Badges e Detalhes
-const GREEN_PRIMARY = "#71f082";  
-const GREEN_SECONDARY = "#71f082"; 
-
-// CONFIGURAÇÃO DAS BOLINHAS DO FUNDO
-const GRID_SPEED = "6s"; 
-const GRID_COLOR = "rgba(0, 0, 0, 1)"; 
-
-// CONFIGURAÇÃO DA FLUTUAÇÃO SUAVE DOS CARDS / SEÇÕES
-const CARD_FLOAT_OFFSET = "-6px";
-const CARD_FLOAT_SPEED = "3s";
-
-// CONFIGURAÇÃO DA TAG SOBRE MIM
-const SOBRE_MIM_SCALE = "1.08";
-const SOBRE_MIM_SPEED = "2.5s";
-
-// ==========================================
-// CONTROLE TOTAL DOS RECORDES DE JORNAL (LETRAS)
-// ==========================================
-
-// 1. Ativar / Desativar a Animação Stop-Motion das letras
-const ENABLE_LETTER_ANIMATION = true; 
-
-// 2. Cores de Fundo das Letras
-const LETTER_BG_COLORS = ["#ffffff", "#71f082", "#ffffff", "#a8ffb6"];
-
-// 3. Velocidade da Animação das Letras
-const CUTOUT_SPEED = "2s";
-
-// 4. Quantidade de quadros do Stop-Motion
-const CUTOUT_STEPS = 3; 
-
-// 5. Intensidade do MOVIMENTO / Tremor
-const JITTER_INTENSITY = 1;
-
-// ==========================================
 // DADOS PESSOAIS, EXPERIÊNCIAS E PROJETOS
 // ==========================================
-const portfolioText = "PORTFOLIO";
-const yearText = "2026";
-const aboutText = "SOBRE MIM";
-const featuredText = "PROJETOS";
-const contactText = "CONTATO";
+
+const isAvailable = true;
 
 interface Links {
   github?: string;
@@ -59,696 +11,1186 @@ interface Links {
   steam?: string;
 }
 
+interface MediaItem {
+  type: 'image' | 'youtube';
+  url: string; // Caminho da imagem ou ID do vídeo do YouTube
+  alt?: string;
+}
+
 interface Project {
+  id: string;
+  tabTitle: string;
   title: string;
   category: string;
+  date: string;
   description: string;
   tags: string[];
-  youtubeId?: string;
-  screenshots?: string[]; 
+  media: MediaItem[];
   links?: Links;
+  styles: {
+    tabBg: string;
+    tabText: string;
+    bodyBg: string;
+    bodyText: string;
+    subText: string;
+  };
 }
 
 interface Experience {
   company: string;
+  role: string;
   logo: string;
 }
 
-// SUAS EXPERIÊNCIAS PROFISSIONAIS (Adicione ou altere aqui)
+interface Education {
+  degree: string;
+  description: string;
+  prediction: string;
+  logo: string;
+}
+
+const education: Education = {
+  degree: "JOGOS DIGITAIS - TECNÓLOGO",
+  description: "Tecnólogo em Desenvolvimento de Jogos & Sistemas Interativos",
+  prediction: "PREVISÃO: 02/2027",
+  logo: "prints/rbs-tv-logo.png"
+};
+
 const experiences: Experience[] = [
-  {
-    company: "Grupo RBS - Programadora",
-    logo: "prints/rbs-tv-logo.png",
-  },
-  {
-    company: "Bad Moth - Programadora",
-    logo: "prints/badmoth.jpeg",
-  },
-  {
-    company: "Little Devil - Artista Técnico",
-    logo: "prints/little_devil-Photoroom.png",
-  },
-    {
-    company: "Editora de Vídeos - Freelancer",
-    logo: "prints/camera_icon.png",
-  },
+  { company: "Grupo RBS", role: "Programadora", logo: "prints/rbs-tv-logo.png" },
+  { company: "Bad Moth", role: "Programadora", logo: "prints/rbs-tv-logo.png" },
+  { company: "Little Devil", role: "Artista Técnico", logo: "prints/rbs-tv-logo.png" },
+  { company: "Editora de Vídeos", role: "Freelancer", logo: "prints/camera_icon.png" },
 ];
 
 const projects: Project[] = [
   {
+    id: "proj1",
+    tabTitle: "PROJETO 01",
     title: "STACKED PIRATES",
-    category: "Puzzle 3D isométrico de piratas procurando por um tesouro.",
-    description: "Um jogo de puzzle em que você usa seus piratas para conseguir atingir locais e passar por certas áreas atrás do seu objetivo de encontrar o baú soterrado pelo mapa. O projeto está sendo produzido para uma disciplina da faculdade e contém o foco na mecânica de utilizar a pilha de piratas para conseguir navegar no mapa e conseguir passar pelas fases. O jogo tem uma estética low-poly e tem uma estilização cartoon feita por meio de shaders e efeitos visuais. Este projeto foi feito inteiramente por mim, desde a parte visual até a parte do código.",
+    category: "Exemplo.",
+    date: "12 OUT, 2026",
+    description: "Exemplo.",
     tags: ["C#", "Unity", "Shaders", "Blender"],
-    youtubeId: "???",
-    screenshots: [
-      "prints/Capivarinha20-20Thassiane20Targino20-20Ipram2028129.png",
+    media: [
+      { type: 'image', url: "prints/Capivarinha20-20Thassiane20Targino20-20Ipram2028129.png", alt: "Stacked Pirates Capivara" },
+      { type: 'image', url: "prints/camera_icon.png", alt: "Camera Icon Exemplo" },
+      // Exemplo de vídeo do YouTube (basta descomentar e colocar o ID correto):
+      // { type: 'youtube', url: "dQw4w9WgXcQ" }
     ],
-    links: {
-      github: "https://github.com"
+    links: { github: "https://github.com" },
+    styles: {
+      tabBg: "bg-[#18181b]",
+      tabText: "text-white",
+      bodyBg: "bg-[#18181b]",
+      bodyText: "text-white",
+      subText: "text-zinc-300"
     }
   },
   {
+    id: "proj2",
+    tabTitle: "PROJETO 02",
     title: "Spell Slot",
-    category: "????",
-    description: "????",
+    category: "Exemplo.",
+    date: "2 JAN, 2026",
+    description: "Exemplo.",
     tags: ["C#", "Unity"],
-    screenshots: [
-      "/prints/outro-1.png"
+    media: [
+      { type: 'image', url: "prints/outro-1.png", alt: "Spell Slot Tela 1" },
+      { type: 'image', url: "prints/camera_icon.png", alt: "Spell Slot Tela 2" }
     ],
-    links: {
-      github: "https://github.com",
-      itchio: "https://itch.io"
+    links: { github: "https://github.com", itchio: "https://itch.io" },
+    styles: {
+      tabBg: "bg-[#facc15]",
+      tabText: "text-black",
+      bodyBg: "bg-[#facc15]",
+      bodyText: "text-black",
+      subText: "text-zinc-900"
     }
   },
   {
+    id: "proj3",
+    tabTitle: "PROJETO 03",
     title: "OUTRO JOGO",
-    category: "????",
-    description: "????",
+    category: "Exemplo.",
+    date: "15 DEZ, 2025",
+    description: "Exemplo.",
     tags: ["C#", "Unity"],
-    screenshots: [
-      ""
+    media: [
+      { type: 'image', url: "prints/camera_icon.png", alt: "Outro Jogo Tela 1" }
     ],
-    links: {
-      github: "https://github.com",
-      itchio: "https://itch.io"
+    links: { github: "https://github.com", itchio: "https://itch.io" },
+    styles: {
+      tabBg: "bg-[#2563eb]",
+      tabText: "text-white",
+      bodyBg: "bg-[#2563eb]",
+      bodyText: "text-white",
+      subText: "text-blue-100"
     }
   }
 ];
 
-function createPaperLetters(text: string) {
-  return text.split("").map((letter, idx) => {
-    const baseRot = ((Math.random() * 16 - 8) * JITTER_INTENSITY).toFixed(1); 
-    const jitterRot = ((Math.random() * 12 - 6) * JITTER_INTENSITY).toFixed(1);
-
-    const offsetX = ((Math.random() * 8 - 4) * JITTER_INTENSITY).toFixed(1);
-    const offsetY = ((Math.random() * 10 - 5) * JITTER_INTENSITY).toFixed(1);
-
-    const fontStyles = ["font-black", "font-bold", "font-extrabold"];
-    const fontStyle = fontStyles[idx % fontStyles.length];
-
-    const delay = (Math.random() * 1.2).toFixed(2);
-    const bgColor = LETTER_BG_COLORS[idx % LETTER_BG_COLORS.length];
-
-    return { 
-      letter, 
-      baseRot: `${baseRot}deg`, 
-      jitterRot: `${jitterRot}deg`,
-      offsetX: `${offsetX}px`,
-      offsetY: `${offsetY}px`,
-      fontStyle,
-      delay: `${delay}s`,
-      bgColor
-    };
-  });
-}
-
-const portfolioLetters = createPaperLetters(portfolioText);
-const yearLetters = createPaperLetters(yearText);
-const aboutLetters = createPaperLetters(aboutText);
-const featuredLetters = createPaperLetters(featuredText);
-const contactLetters = createPaperLetters(contactText);
+const skills = [
+  "C#", "Python", "Wolfram Language", "ShadersLab", "Html", "Astro", "GitHub", "Unity", "Godot", "After Effects", "Premiere", "Blender"
+];
 ---
 
-<html lang="pt" class="scroll-smooth">
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Portfolio - Game Dev</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#9299a6" />
+    <title>Portfólio — Vittória</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
-  <body 
-    class="text-zinc-900 font-sans p-4 md:p-8 min-h-screen selection:bg-[#86efac] relative overflow-x-hidden bg-grid-pattern"
-    style={`
-      background-color: ${BG_COLOR};
-      --grid-speed: ${GRID_SPEED};
-      --grid-color: ${GRID_COLOR};
-      --card-float-offset: ${CARD_FLOAT_OFFSET};
-      --card-float-speed: ${CARD_FLOAT_SPEED};
-      --sobre-mim-scale: ${SOBRE_MIM_SCALE};
-      --sobre-mim-speed: ${SOBRE_MIM_SPEED};
-      --cutout-speed: ${CUTOUT_SPEED};
-      --cutout-steps: ${CUTOUT_STEPS};
-    `}
-  >
 
-    <!-- CONTAINER PRINCIPAL -->
-    <main class="max-w-5xl mx-auto space-y-12 relative z-10">
-
-      <!-- HEADER / PERFIL CENTRALIZADO -->
-      <section 
-        class="relative bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-card-float hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 flex flex-col justify-between items-center text-center"
-        style={`min-height: ${HEADER_HEIGHT};`}
-      >
-        <!-- NOME E ANO CENTRALIZADOS COM DESTAQUE -->
-        <div class="my-auto w-full flex flex-col items-center justify-center gap-3 py-4">
-          
-          <!-- LINHA DE CIMA: PORTFOLIO -->
-          <h2 class="text-3xl md:text-7xl uppercase flex flex-wrap gap-2 items-center justify-center">
-            {portfolioLetters.map((item) => (
-              item.letter === " " ? (
-                <span class="w-3 md:w-5"></span>
-              ) : (
-                <span 
-                  class={`inline-flex items-center justify-center border-2 border-black text-black px-3 py-1 md:px-3.5 md:py-1.5 rounded-sm shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] hover:scale-125 hover:z-20 transition-transform duration-150 cursor-pointer ${ENABLE_LETTER_ANIMATION ? 'animate-paper-cutout' : ''} ${item.fontStyle}`}
-                  style={`
-                    --base-rot: ${item.baseRot};
-                    --jitter-rot: ${item.jitterRot};
-                    --offset-x: ${item.offsetX};
-                    --offset-y: ${item.offsetY};
-                    animation-delay: ${item.delay};
-                    background-color: ${item.bgColor};
-                    transform: rotate(${item.baseRot});
-                  `}
-                >
-                  {item.letter}
-                </span>
-              )
-            ))}
-          </h2>
-
-          <!-- LINHA DE BAIXO: 2026 -->
-          <h1 class="text-4xl md:text-8xl uppercase flex flex-wrap gap-2 items-center justify-center">
-            {yearLetters.map((item) => (
-              item.letter === " " ? (
-                <span class="w-4 md:w-6"></span>
-              ) : (
-                <span 
-                  class={`inline-flex items-center justify-center border-2 md:border-2 border-black text-black px-3 py-1 md:px-4 md:py-1.5 rounded-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:scale-125 hover:z-20 transition-transform duration-150 cursor-pointer ${ENABLE_LETTER_ANIMATION ? 'animate-paper-cutout' : ''} ${item.fontStyle}`}
-                  style={`
-                    --base-rot: ${item.baseRot};
-                    --jitter-rot: ${item.jitterRot};
-                    --offset-x: ${item.offsetX};
-                    --offset-y: ${item.offsetY};
-                    animation-delay: ${item.delay};
-                    background-color: ${item.bgColor};
-                    transform: rotate(${item.baseRot});
-                  `}
-                >
-                  {item.letter}
-                </span>
-              )
-            ))}
-          </h1>
-
-        </div>
-
-        <!-- BOTÕES CENTRALIZADOS EMBAIXO COM BORDA PRETA GARANTIDA -->
-        <div class="flex flex-wrap gap-4 justify-center items-center w-full mt-auto pt-2">
-          <a 
-            href="#projetos" 
-            class="border-2 border-black text-black font-black px-6 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:-rotate-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2"
-            style={`background-color: ${GREEN_PRIMARY};`}
-          >
-            Projetos
-          </a>
-          <a 
-            href="https://github.com/vcschroer" 
-            target="_blank" 
-            class="border-2 border-black text-black font-black px-6 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:-rotate-2 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2"
-            style={`background-color: ${GREEN_PRIMARY};`}
-          >
-            GitHub
-          </a>
-          <a 
-            href="#contato" 
-            class="border-2 border-black text-black font-black px-6 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:rotate-2 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
-            style={`background-color: ${GREEN_SECONDARY};`}
-          >
-            Contato
-          </a>
-        </div>
-
-      </section>
-
-      <!-- SEÇÃO SOBRE MIM -->
-      <section class="relative bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-card-float hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          
-          <!-- COLUNA DA ESQUERDA: TÍTULO, TEXTO E FORMAÇÃO -->
-          <div class="space-y-6 text-left flex flex-col justify-between h-full">
-            <div class="space-y-4">
-              <!-- TÍTULO SOBRE MIM COM LETRAS DE JORNAL COLORIDAS -->
-              <div class="flex items-center justify-start">
-                <h2 class="text-2xl md:text-3xl uppercase flex flex-wrap gap-1.5 items-center py-2">
-                  {aboutLetters.map((item) => (
-                    item.letter === " " ? (
-                      <span class="w-3 md:w-5"></span>
-                    ) : (
-                      <span 
-                        class={`inline-flex items-center justify-center border-2 border-black text-black px-2 py-0.5 md:px-2.5 md:py-1 rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-125 hover:z-20 transition-transform duration-150 cursor-pointer ${ENABLE_LETTER_ANIMATION ? 'animate-paper-cutout' : ''} ${item.fontStyle}`}
-                        style={`
-                          --base-rot: ${item.baseRot};
-                          --jitter-rot: ${item.jitterRot};
-                          --offset-x: ${item.offsetX};
-                          --offset-y: ${item.offsetY};
-                          animation-delay: ${item.delay};
-                          background-color: ${item.bgColor};
-                          transform: rotate(${item.baseRot});
-                        `}
-                      >
-                        {item.letter}
-                      </span>
-                    )
-                  ))}
-                </h2>
-              </div>
-
-              <!-- DIVISÓRIA SÓLIDA PRETA ABAIXO DO TÍTULO -->
-              <div class="border-b-4 border-black my-2"></div>
-
-              <!-- TEXTO ALINHADO À ESQUERDA -->
-              <div class="font-bold text-lg text-black leading-relaxed space-y-4">
-                <p>
-                  Me chamo Vittória e tenho 20 anos, sou uma programadora focada em desenvolvimento de jogos e apaixonada por criar sistemas interativos, eficientes e bem estruturados. Tenho experiência prática na construção de arquiteturas de gameplay, mecânicas 2D e 3D e otimização de código.
-                </p>
-                <p>
-                  A criação de jogos me deu uma base sólida em orientação a objetos, lógica matemática e performance. Por isso, transito facilmente entre a engenharia de jogos e o desenvolvimento de software em geral, sempre focada em entregar código limpo e funcional.
-                </p>
-              </div>
+  <body>
+    <div class="site-background">
+      <div class="site-nav-wrapper">
+        <!-- BARRA DE NAVEGAÇÃO COM EFEITOS -->
+        <nav class="site-nav" aria-label="Navegação principal">
+          <div class="nav-left">
+            <a class="brand-mark interactive hover-sound" href="#inicio" aria-label="Vittória — início">
+              <img src="prints/rbs-tv-logo.png" alt="Foto Principal" />
+            </a>
+            <a class="nav-link interactive hover-sound" href="#inicio">INÍCIO</a>
+            <a class="nav-link interactive hover-sound" href="#sobre">SOBRE</a>
+            <a class="nav-link interactive hover-sound" href="#projetos">PROJETOS</a>
+          </div>
+          <div class="nav-right">
+            <div class="social-links" aria-label="Redes sociais">
+              <a class="social interactive hover-sound" href="#" aria-label="LinkedIn">
+                <img src="prints/camera_icon.png" alt="LinkedIn" />
+              </a>
+              <a class="social interactive hover-sound" href="#" aria-label="Instagram">
+                <img src="prints/camera_icon.png" alt="Instagram" />
+              </a>
+              <a class="social interactive hover-sound" href="#" aria-label="Dribbble">
+                <img src="prints/camera_icon.png" alt="Dribbble" />
+              </a>
             </div>
+            <a class="nav-link nav-contact-btn interactive hover-sound" href="#contato">CONTATO</a>
+          </div>
+        </nav>
+      </div>
 
-            <!-- DIVISÓRIA SÓLIDA PRETA ABAIXO DO TEXTO -->
-            <div class="border-b-4 border-black my-2"></div>
-
-            <!-- FORMAÇÃO ACADÊMICA -->
-            <div class="space-y-3">
-              <h3 class="font-black text-sm uppercase tracking-wider text-black flex items-center gap-2">
-                <span class="w-2.5 h-2.5 bg-black rounded-full inline-block"></span>
-                Formação Acadêmica
-              </h3>
-
-              <div 
-                class="border-3 border-black p-4 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-[1.01] transition-transform duration-200 cursor-default flex flex-col md:flex-row items-start md:items-center justify-between gap-3"
-                style={`background-color: ${GREEN_PRIMARY};`}
-              >
-                <div class="space-y-1">
-                  <span class="text-base font-black uppercase text-black block tracking-tight">
-                    Jogos Digitais
-                  </span>
-                  <p class="text-xs font-bold text-black opacity-90 leading-snug">
-                    Tecnólogo em Desenvolvimento de Jogos & Sistemas Interativos
-                  </p>
-                </div>
-                
-                <span class="border-2 border-black bg-white text-black font-extrabold text-xs px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] whitespace-nowrap self-start md:self-auto">
-                  Previsão: 02/2027
-                </span>
-              </div>
-            </div>
-
+      <main class="paper-sheet" id="inicio">
+        <!-- HERO -->
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-availability-wrap">
+            <p class="availability">
+              <span class:list={["availability-dot", !isAvailable && "dot-red"]}></span> 
+              {isAvailable ? "DISPONÍVEL PARA NOVOS PROJETOS" : "NÃO DISPONÍVEL PARA NOVOS PROJETOS"}
+            </p>
           </div>
 
-          <!-- COLUNA DA DIREITA: SUB-SEÇÕES (FERRAMENTAS & EXPERIÊNCIAS PROFISSIONAIS) -->
-          <div class="space-y-6">
+          <div class="hero-title-wrap">
+            <h1 id="hero-title" class="hero-title">
+              <span class="hero-title-main hover-sound portfolio-title-hover">PORTFÓLIO</span>
+              <span class="hero-title-year hover-sound portfolio-title-hover">2026</span>
+            </h1>
+          </div>
 
-            <!-- SUB-SEÇÃO 1: FERRAMENTAS & TECNOLOGIAS -->
-            <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4 text-center">
-              <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2">
-                Ferramentas & Tecnologias
-              </h3>
+          <!-- TAGS -->
+          <div class="hero-tags-row">
+            <span class="sticker sticker-pink interactive hover-sound">Exemplo.</span>
+            <span class="sticker sticker-blue interactive hover-sound">Exemplo.</span>
+            <span class="sticker sticker-yellow interactive hover-sound">PROGRAMADORA</span>
+            <span class="sticker sticker-green interactive hover-sound">BRASIL, RS</span>
+          </div>
 
-              <div class="flex flex-wrap justify-center gap-2 pt-1">
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  C#
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  Python
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  Wolfram Language 
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  ShadersLab
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_SECONDARY};`}
-                >
-                  Html
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_SECONDARY};`}
-                >
-                  Astro
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  GitHub
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  Unity
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  Godot
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  After Effects
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  Premiere
-                </span>
-                <span 
-                  class="border-2 border-black font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform cursor-default"
-                  style={`background-color: ${GREEN_PRIMARY};`}
-                >
-                  Blender
-                </span>
+          <h2 class="hero-tagline">
+             Exemplo.
+          </h2>
+          <a class="primary-button interactive hover-sound" href="#contato"><span class="button-square" aria-hidden="true"></span> VAMOS CONVERSAR</a>
+          <div class="hero-curve" aria-hidden="true"></div>
+        </section>
+
+        <div class="page-content">
+          <!-- SOBRE MIM -->
+          <section id="sobre" class="about-section" aria-labelledby="about-heading">
+            <div class="about-intro">
+              <div class="polaroid polaroid-left interactive hover-sound" aria-label="Cartão com a marca RBS TV">
+                <span class="tape tape-blue" aria-hidden="true"></span>
+                <div class="polaroid-image polaroid-logo">
+                  <img src="prints/rbs-tv-logo.png" alt="Logo RBS TV" />
+                </div>
+                <p class="polaroid-caption">vittória</p>
+              </div>
+
+              <div class="about-center">
+                <div id="about-heading" class="section-pill interactive hover-sound">QUEM SOU EU?</div>
+                <p class="about-copy">
+                  Me chamo Vittória e tenho 20 anos. Sou uma programadora focada em desenvolvimento de jogos, pipipopo.
+                </p>
+                <div class="skills-list" aria-label="Habilidades">
+                  {skills.map((skill) => <span class="skill-tag interactive hover-sound">{skill}</span>)}
+                </div>
               </div>
             </div>
 
-            <!-- SUB-SEÇÃO 2: EXPERIÊNCIAS PROFISSIONAIS (CARDS INDIVIDUAIS VERDES) -->
-            <div class="border-4 border-black p-5 rounded-2xl bg-zinc-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4">
-              <h3 class="font-black text-lg uppercase tracking-wider text-black border-b-2 border-black pb-2 text-center">
-                Experiências Profissionais
-              </h3>
-
-              <div class="space-y-3 pt-1">
-                {experiences.map((exp) => (
-                  <div 
-                    class="border-2 border-black p-3 rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3.5 hover:translate-x-1 transition-transform duration-150 cursor-default"
-                    style={`background-color: ${GREEN_PRIMARY};`}
-                  >
-                    <!-- Logo da Empresa (Mantido fundo branco para destaque do logo) -->
-                    <div class="w-12 h-12 border-2 border-black rounded-lg bg-white shrink-0 overflow-hidden flex items-center justify-center p-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                      <img 
-                        src={exp.logo} 
-                        alt={exp.company} 
-                        class="w-full h-full object-contain rounded-sm"
-                      />
-                    </div>
-                    <!-- Nome da Empresa e Cargo -->
-                    <div class="flex flex-col text-left min-w-0 justify-center">
-                      <span class="text-sm font-black uppercase text-black tracking-tight leading-tight truncate">
-                        {exp.company}
-                      </span>
-                      {exp.role ? (
-                        <span class="text-xs font-extrabold text-black opacity-80 leading-tight">
-                          {exp.role}
-                        </span>
-                      ) : exp.title ? (
-                        <span class="text-xs font-extrabold text-black opacity-80 leading-tight">
-                          {exp.title}
-                        </span>
-                      ) : null}
+            <!-- FORMAÇÃO E EXPERIÊNCIA -->
+            <div class="career-container">
+              <div class="career-block">
+                <h3 class="career-heading">FORMAÇÃO ACADÊMICA</h3>
+                <div class="education-card interactive hover-sound">
+                  <div class="education-content-left">
+                    <img src={education.logo} alt={education.degree} class="experience-logo-img" loading="lazy" />
+                    <div class="experience-text-stack">
+                      <strong class="education-title">{education.degree}</strong>
+                      <p class="education-desc">{education.description}</p>
                     </div>
                   </div>
+                  <span class="graduation-date">{education.prediction}</span>
+                </div>
+              </div>
+
+              <div class="career-block">
+                <h3 class="career-heading">EXPERIÊNCIA PROFISSIONAL</h3>
+                <div class="experience-grid">
+                  {experiences.map((exp) => (
+                    <div class="experience-card interactive hover-sound">
+                      <img src={exp.logo} alt={exp.company} class="experience-logo-img" loading="lazy" />
+                      <div class="experience-text-stack">
+                        <strong class="experience-company">{exp.company}</strong>
+                        <span class="experience-role">{exp.role}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROJETOS / CASE STUDIES -->
+          <section id="projetos" class="projects-section" aria-labelledby="projects-heading">
+            <span class="normal-label projects-label">Projetos selecionados</span>
+            <div class="projects-heading-row">
+              <h2 id="projects-heading" class="projects-heading">PROJETOS</h2>
+              <span class="projects-count">{projects.length} PROJETOS</span>
+            </div>
+
+            <!-- Pasta contendo o som de hover no corpo principal -->
+            <div class="project-folder hover-sound" data-nosub="true">
+              <div class="project-tabs" role="tablist" aria-label="Selecionar projeto">
+                {projects.map((project, index) => (
+                  <button
+                    class:list={["tab-btn", `tab-${project.id}`, index === 0 ? "is-active" : "", "interactive"]}
+                    type="button"
+                    role="tab"
+                    id={`tab-${project.id}`}
+                    aria-controls={project.id}
+                    aria-selected={index === 0 ? "true" : "false"}
+                    tabindex={index === 0 ? 0 : -1}
+                    data-target={project.id}
+                    style={`--tab-index: ${index};`}
+                  >
+                    {project.tabTitle}
+                  </button>
+                ))}
+              </div>
+
+              <div class="project-panels">
+                {projects.map((project, index) => (
+                  <article
+                    id={project.id}
+                    class:list={["project-panel", `panel-${project.id}`]}
+                    role="tabpanel"
+                    aria-labelledby={`tab-${project.id}`}
+                    hidden={index !== 0}
+                    tabindex="0"
+                  >
+                    <div class="project-copy">
+                      <div class="project-intro">
+                        <p class="project-date">{project.date}</p>
+                        <h3>{project.title}</h3>
+                        <p class="project-category">CATEGORIA: "{project.category}"</p>
+                      </div>
+                      <p class="project-description">{project.description}</p>
+                      <div class="project-links">
+                        {project.links?.github && (
+                          <a class="interactive" href={project.links.github} target="_blank" rel="noopener noreferrer">VER PROJETO ↗</a>
+                        )}
+                        {project.links?.itchio && (
+                          <a class="interactive" href={project.links.itchio} target="_blank" rel="noopener noreferrer">JOGAR PROJETO ↗</a>
+                        )}
+                      </div>
+                    </div>
+
+                    <div class="project-visual">
+                      <span class="project-tape project-tape-left" aria-hidden="true"></span>
+                      <span class="project-tape project-tape-right" aria-hidden="true"></span>
+                      
+                      <!-- CARROSSEL DE MÍDIA (FOTOS E VÍDEOS) -->
+                      <div class="project-image-frame carousel-container" data-project-id={project.id}>
+                        {project.media && project.media.length > 0 ? (
+                          <>
+                            <div class="carousel-track">
+                              {project.media.map((item, mIndex) => (
+                                <div class:list={["carousel-slide", mIndex === 0 ? "is-active-slide" : ""]} data-index={mIndex}>
+                                  {item.type === 'image' ? (
+                                    <img src={item.url} alt={item.alt || project.title} loading={index === 0 && mIndex === 0 ? "eager" : "lazy"} />
+                                  ) : (
+                                    <iframe
+                                      src={`https://www.youtube-nocookie.com/embed/${item.url}`}
+                                      title={project.title}
+                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                      allowfullscreen
+                                    ></iframe>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+
+                            {project.media.length > 1 && (
+                              <>
+                                <button type="button" class="carousel-btn carousel-prev interactive" aria-label="Mídia anterior">‹</button>
+                                <button type="button" class="carousel-btn carousel-next interactive" aria-label="Próxima mídia">›</button>
+                                <div class="carousel-dots">
+                                  {project.media.map((_, mIndex) => (
+                                    <button type="button" class:list={["carousel-dot interactive", mIndex === 0 ? "is-active-dot" : ""]} data-index={mIndex} aria-label={`Ir para mídia ${mIndex + 1}`}></button>
+                                  ))}
+                                </div>
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          <div class="project-no-image">Mídia indisponível</div>
+                        )}
+                      </div>
+
+                      <div class="project-tags">
+                        {project.tags.map((tag) => <span class="interactive">{tag}</span>)}
+                      </div>
+                    </div>
+                  </article>
                 ))}
               </div>
             </div>
+          </section>
 
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- PROJETOS -->
-      <section id="projetos" class="space-y-8">
-        
-        <div class="flex flex-wrap items-center gap-3">
-          <h2 class="text-5xl md:text-5xl uppercase flex flex-wrap gap-1.5 items-center py-2">
-            {featuredLetters.map((item) => (
-              item.letter === " " ? (
-                <span class="w-3 md:w-5"></span>
-              ) : (
-                <span 
-                  class={`inline-flex items-center justify-center border-2 border-black text-black px-2 py-0.5 md:px-2.5 md:py-1 rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-125 hover:z-20 transition-transform duration-150 cursor-pointer ${ENABLE_LETTER_ANIMATION ? 'animate-paper-cutout' : ''} ${item.fontStyle}`}
-                  style={`
-                    --base-rot: ${item.baseRot};
-                    --jitter-rot: ${item.jitterRot};
-                    --offset-x: ${item.offsetX};
-                    --offset-y: ${item.offsetY};
-                    animation-delay: ${item.delay};
-                    background-color: ${item.bgColor};
-                    transform: rotate(${item.baseRot});
-                  `}
-                >
-                  {item.letter}
-                </span>
-              )
-            ))}
-          </h2>
-
-          <span 
-            class="border-2 border-black font-bold text-xs px-2.5 py-1 rounded-full uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] animate-wiggle-slow"
-            style={`background-color: ${GREEN_SECONDARY};`}
-          >
-            {projects.length} Projetos
-          </span>
-        </div>
-
-        {projects.map((project, index) => (
-          <article class="relative bg-white border-4 border-black rounded-3xl p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 flex flex-col lg:flex-row gap-8 animate-card-float">
-            
-            <div 
-              class="absolute -top-4 left-6 border-2 border-black font-bold px-3 py-1 rounded-md text-xs uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] animate-wiggle-slow"
-              style={`background-color: ${GREEN_PRIMARY};`}
-            >
-              PROJECT #{index + 1}
+          <!-- CONTATO -->
+          <section id="contato" class="contact-section" aria-labelledby="contact-heading">
+            <div class="section-pill interactive hover-sound">VAMOS CONVERSAR</div>
+            <h2 id="contact-heading">Gostou do meu trabalho? Vamos conversar!</h2>
+            <div class="contact-actions">
+              <a class="contact-email interactive hover-sound" href="mailto:seuemail@exemplo.com">E-MAIL</a>
+              <a class="contact-github interactive hover-sound" href="https://github.com/vcschroer" target="_blank" rel="noopener noreferrer">GITHUB</a>
             </div>
-
-            <!-- COLUNA ESQUERDA: VÍDEO + GALERIA DE PRINTS -->
-            <div class="lg:w-1/2 w-full flex flex-col gap-4 shrink-0">
-              
-              <!-- VÍDEO DO YOUTUBE -->
-              {project.youtubeId && (
-                <div class="w-full aspect-video border-4 border-black rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-black group">
-                  <iframe 
-                    class="w-full h-full group-hover:scale-102 transition-transform duration-300"
-                    src={`https://www.youtube.com/embed/${project.youtubeId}`}
-                    title={project.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              )}
-
-              <!-- GALERIA DE FOTOS / PRINTS -->
-              {project.screenshots && project.screenshots.length > 0 && (
-                <div class="grid grid-cols-2 gap-3">
-                  {project.screenshots.map((imgUrl, imgIdx) => (
-                    <div class="aspect-video border-2 md:border-3 border-black rounded-xl overflow-hidden shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-zinc-100 group cursor-pointer">
-                      <img 
-                        src={imgUrl} 
-                        alt={`${project.title} screenshot ${imgIdx + 1}`} 
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-
-            </div>
-
-            <!-- DETALHES DO PROJETO -->
-            <div class="flex flex-col justify-between w-full space-y-6">
-              <div class="space-y-3">
-                <h3 class="text-3xl font-black uppercase tracking-tight">{project.title}</h3>
-                <p class="text-sm font-bold text-black">{project.category}</p>
-                <p class="text-zinc-700 font-medium leading-relaxed">{project.description}</p>
-                
-                <!-- TAGS -->
-                <div class="flex flex-wrap gap-2 pt-2">
-                  {project.tags.map(tag => (
-                    <span 
-                      class="border-2 border-black text-xs font-bold px-3 py-1 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-110 transition-transform duration-150 cursor-default"
-                      style={`background-color: ${GREEN_SECONDARY};`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <!-- BOTÕES DO PROJETO -->
-              {project.links && (
-                <div class="flex flex-wrap gap-3 pt-4 border-t-2 border-zinc-100">
-                  
-                  {project.links.github && (
-                    <a 
-                      href={project.links.github} 
-                      target="_blank" 
-                      class="border-2 border-black text-black font-extrabold text-sm px-4 py-2.5 rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:-rotate-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2"
-                      style={`background-color: ${GREEN_PRIMARY};`}
-                    >
-                      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                      GitHub Code
-                    </a>
-                  )}
-
-                  {project.links.itchio && (
-                    <a 
-                      href={project.links.itchio} 
-                      target="_blank" 
-                      class="border-2 border-black text-black font-extrabold text-sm px-4 py-2.5 rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:rotate-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2"
-                      style={`background-color: ${GREEN_SECONDARY};`}
-                    >
-                      🎮 itch.io
-                    </a>
-                  )}
-
-                  {project.links.steam && (
-                    <a 
-                      href={project.links.steam} 
-                      target="_blank" 
-                      class="border-2 border-black text-black font-extrabold text-sm px-4 py-2.5 rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:-rotate-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2"
-                      style={`background-color: ${GREEN_PRIMARY};`}
-                    >
-                      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.03 4.524 4.524s-2.03 4.524-4.524 4.524h-.105l-4.076 2.911c.002.052.006.105.006.158 0 1.807-1.465 3.272-3.272 3.272-1.42 0-2.636-.905-3.087-2.164L.171 15.31C1.36 20.33 5.867 24 11.979 24c6.627 0 12-5.373 12-12s-5.373-12-12-12z"/></svg>
-                      Steam Wishlist
-                    </a>
-                  )}
-
-                </div>
-              )}
-
-            </div>
-
-          </article>
-        ))}
-
-      </section>
-
-      <!-- SEÇÃO DE CONTATOS -->
-      <section id="contato" class="relative bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-card-float hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-        
-        <!-- TÍTULO CONTATOS -->
-        <div class="flex items-center justify-center mb-8">
-          <h2 class="text-2xl md:text-4xl uppercase flex flex-wrap gap-1.5 items-center justify-center py-2">
-            {contactLetters.map((item) => (
-              item.letter === " " ? (
-                <span class="w-3 md:w-5"></span>
-              ) : (
-                <span 
-                  class={`inline-flex items-center justify-center border-2 border-black text-black px-2 py-0.5 md:px-2.5 md:py-1 rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-125 hover:z-20 transition-transform duration-150 cursor-pointer ${ENABLE_LETTER_ANIMATION ? 'animate-paper-cutout' : ''} ${item.fontStyle}`}
-                  style={`
-                    --base-rot: ${item.baseRot};
-                    --jitter-rot: ${item.jitterRot};
-                    --offset-x: ${item.offsetX};
-                    --offset-y: ${item.offsetY};
-                    animation-delay: ${item.delay};
-                    background-color: ${item.bgColor};
-                    transform: rotate(${item.baseRot});
-                  `}
-                >
-                  {item.letter}
-                </span>
-              )
-            ))}
-          </h2>
+          </section>
         </div>
+      </main>
+    </div>
 
-        <!-- OPÇÕES DE CONTATO COM BORDA PRETA GARANTIDA -->
-        <div class="flex flex-wrap justify-center gap-4">
-          <a 
-            href="mailto:seuemail@exemplo.com" 
-            class="border-2 border-black text-black font-extrabold px-6 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:-rotate-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2 text-base"
-            style={`background-color: ${GREEN_PRIMARY};`}
-          >
-            Email
-          </a>
-          <a 
-            href="https://linkedin.com" 
-            target="_blank"
-            class="border-2 border-black text-black font-extrabold px-6 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:rotate-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2 text-base"
-            style={`background-color: ${GREEN_SECONDARY};`}
-          >
-            Exemplo
-          </a>
-          <a 
-            href="https://itch.io" 
-            target="_blank"
-            class="border-2 border-black text-black font-extrabold px-6 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 hover:-rotate-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2 text-base"
-            style={`background-color: ${GREEN_PRIMARY};`}
-          >
-            Exemplo
-          </a>
-        </div>
+    <!-- SCRIPT DE ÁUDIO & INTERAÇÕES -->
+    <script>
+      let audioCtx = null;
+      let isPlayingSound = false;
 
-      </section>
-
-    </main>
-
-    <!-- ESTILOS E ANIMAÇÕES DE MOVIMENTO -->
-    <style>
-      /* PADRÃO DE GRADE DE FUNDO */
-      .bg-grid-pattern {
-        background-image: radial-gradient(var(--grid-color) 2.5px, transparent 2.5px);
-        background-size: 26px 26px;
-        animation: gridMove var(--grid-speed) linear infinite;
+      function initAudio() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
       }
 
-      @keyframes gridMove {
+      function playPopSound() {
+        if (isPlayingSound) return;
+        try {
+          initAudio();
+          if (!audioCtx) return;
+
+          isPlayingSound = true;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(580, audioCtx.currentTime + 0.07);
+          gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.07);
+          
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.07);
+
+          setTimeout(() => {
+            isPlayingSound = false;
+          }, 90);
+        } catch (e) {
+          isPlayingSound = false;
+        }
+      }
+
+      const projectTabs = Array.from(document.querySelectorAll('.tab-btn'));
+      const projectPanels = Array.from(document.querySelectorAll('.project-panel'));
+
+      function activateProject(targetId, moveFocus = false) {
+        playPopSound();
+        projectTabs.forEach((tab) => {
+          const active = tab.dataset.target === targetId;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', String(active));
+          tab.setAttribute('tabindex', active ? '0' : '-1');
+          if (active && moveFocus) tab.focus();
+        });
+
+        projectPanels.forEach((panel) => {
+          panel.hidden = panel.id !== targetId;
+        });
+      }
+
+      // Lógica do Carrossel de Mídia (Fotos / Vídeos)
+      document.querySelectorAll('.carousel-container').forEach((carousel) => {
+        const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+        const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        if (slides.length <= 1) return;
+
+        let currentIndex = 0;
+
+        function goToSlide(index) {
+          slides[currentIndex].classList.remove('is-active-slide');
+          if (dots[currentIndex]) dots[currentIndex].classList.remove('is-active-dot');
+
+          currentIndex = (index + slides.length) % slides.length;
+
+          slides[currentIndex].classList.add('is-active-slide');
+          if (dots[currentIndex]) dots[currentIndex].classList.add('is-active-dot');
+          playPopSound();
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        dots.forEach((dot, dIndex) => {
+          dot.addEventListener('click', () => goToSlide(dIndex));
+        });
+      });
+
+      document.querySelectorAll('.project-image-frame img').forEach((img) => {
+        const showImageFallback = () => {
+          if (!img.isConnected) return;
+          const fallback = document.createElement('div');
+          fallback.className = 'project-no-image';
+          fallback.textContent = 'Mídia indisponível';
+          img.replaceWith(fallback);
+        };
+        img.addEventListener('error', showImageFallback, { once: true });
+        if (img.complete && img.naturalWidth === 0) showImageFallback();
+      });
+
+      projectTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateProject(tab.dataset.target));
+        tab.addEventListener('keydown', (event) => {
+          let nextIndex = index;
+          if (event.key === 'ArrowRight') nextIndex = (index + 1) % projectTabs.length;
+          else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + projectTabs.length) % projectTabs.length;
+          else if (event.key === 'Home') nextIndex = 0;
+          else if (event.key === 'End') nextIndex = projectTabs.length - 1;
+          else return;
+
+          event.preventDefault();
+          const nextTab = projectTabs[nextIndex];
+          activateProject(nextTab.dataset.target, true);
+        });
+      });
+
+      document.querySelectorAll('.hover-sound').forEach((el) => {
+        el.addEventListener('pointerenter', (e) => {
+          if (el.dataset.nosub && e.target !== el) return;
+          playPopSound();
+        });
+      });
+
+      document.querySelectorAll('.interactive').forEach((el) => {
+        el.addEventListener('pointerdown', () => playPopSound());
+      });
+    </script>
+
+    <style is:global>
+      :root {
+        color-scheme: light;
+        --ink: #171615;
+        --paper: #fcfbf8;
+        --muted: #777879;
+        --line: rgba(30, 30, 30, 0.13);
+        --yellow: #f5d547;
+        --pink: #f36bb1;
+        --green: #22c55e;
+        --blue: #60a5fa;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: 'Inter', sans-serif;
+        background: #9299a6;
+      }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+      img, iframe { display: block; max-width: 100%; border: none; }
+      [hidden] { display: none !important; }
+
+      /* ANIMAÇÃO CONTÍNUA DO FUNDO (GRID SCROLL) COM VELOCIDADE AUMENTADA (10s) */
+      @keyframes scrollBackground {
         0% { background-position: 0 0; }
-        100% { background-position: 26px 26px; }
+        100% { background-position: 50px 50px; }
       }
 
-      /* RECORTE DE JORNAL - CHAVE DE CORES E MOVIMENTO */
-      @keyframes paperCutoutAnimation {
-        0%, 100% {
-          transform: rotate(var(--base-rot)) translate(0px, 0px);
-        }
-        33% {
-          transform: rotate(calc(var(--base-rot) + var(--jitter-rot))) translate(var(--offset-x), var(--offset-y));
-        }
-        66% {
-          transform: rotate(calc(var(--base-rot) - var(--jitter-rot))) translate(calc(var(--offset-x) * -1), calc(var(--offset-y) * -1));
-        }
+      .site-background {
+        min-height: 100vh;
+        padding: 28px 18px 40px;
+        background-color: #9299a6;
+        background-image:
+          linear-gradient(to right, rgba(255,255,255,.3) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,.3) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: scrollBackground 10s linear infinite;
       }
 
-      .animate-paper-cutout {
-        animation: paperCutoutAnimation var(--cutout-speed) steps(var(--cutout-steps)) infinite;
+      /* CONTAINER STICKY QUE MANTÉM A LARGURA DA FOLHA */
+      .site-nav-wrapper {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: min(92vw, 1280px);
+        margin: 0 auto;
       }
 
-      /* FLUTUAÇÃO SUAVE DOS CARDS */
-      @keyframes cardFloat {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(var(--card-float-offset)); }
+      /* BARRA DE NAVEGAÇÃO */
+      .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 76px;
+        padding: 15px clamp(22px, 3vw, 42px);
+        border: 1px solid rgba(0,0,0,.12);
+        border-bottom: 2px solid #b8c0cc;
+        background: #cbd0db;
+        box-shadow: 0 4px 14px rgba(20, 22, 28, .15);
+      }
+      .nav-left, .nav-right, .social-links { display: flex; align-items: center; }
+      .nav-left { gap: clamp(10px, 1.5vw, 23px); min-width: 0; }
+      .nav-right { gap: clamp(12px, 1.8vw, 25px); flex-shrink: 0; }
+      
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        margin-right: 6px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #d2d1d0;
+        background: #fff;
+        box-shadow: 0 2px 3px rgba(0,0,0,.04);
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .brand-mark:hover { transform: scale(1.1) rotate(-8deg); }
+      .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        padding: 0 16px;
+        border: 1px solid #d2d1d0;
+        background: #fff;
+        box-shadow: 0 2px 3px rgba(0,0,0,.04);
+        white-space: nowrap;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .12em;
+        transition: background .2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      }
+      .nav-link:hover { background: var(--yellow); transform: translateY(-2px) scale(1.02); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+      .nav-link:active { transform: translateY(1px) scale(0.98); }
+
+      .nav-contact-btn { background: var(--yellow) !important; }
+      .nav-contact-btn:hover { background: #eab308 !important; }
+
+      .social-links { gap: 8px; }
+      .social {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #d2d1d0;
+        background: #fff;
+        box-shadow: 0 2px 3px rgba(0,0,0,.04);
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .social:hover { transform: translateY(-4px) rotate(-8deg) scale(1.12); }
+      .social img { width: 100%; height: 100%; object-fit: cover; }
+
+      .paper-sheet {
+        position: relative;
+        width: min(92vw, 1280px);
+        min-height: calc(100vh - 68px);
+        margin: 0 auto;
+        overflow-x: hidden;
+        border: 1px solid rgba(0,0,0,.12);
+        border-top: none;
+        background-color: var(--paper);
+        background-image: repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 39px,
+          var(--line) 39px,
+          var(--line) 40px
+        );
+        box-shadow: 0 18px 48px rgba(20, 22, 28, .19);
       }
 
-      .animate-card-float {
-        animation: cardFloat var(--card-float-speed) ease-in-out infinite;
+      /* HERO */
+      .hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 65px 24px 85px;
+        text-align: center;
+      }
+      .hero-availability-wrap { margin-bottom: 8px; }
+      .availability {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        margin: 0;
+        white-space: nowrap;
+        color: #31333a;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .14em;
+      }
+      .availability-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+      .dot-red { background: #ef4444 !important; }
+      
+      .hero-title-wrap { position: relative; width: min(100%, 920px); padding: 15px 0 10px; }
+      .hero-title { display: flex; flex-direction: column; align-items: center; margin: 0; line-height: 0.9; font-family: 'Inter', sans-serif; font-weight: 900; }
+      
+      .portfolio-title-hover {
+        display: inline-block;
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        cursor: default;
+      }
+      .portfolio-title-hover:hover {
+        transform: scale(1.04);
       }
 
-      /* ANIMAÇÃO DE BALANCEI (WIGGLE) */
-      @keyframes wiggleSlow {
-        0%, 100% { transform: rotate(0deg); }
-        25% { transform: rotate(-2deg); }
-        75% { transform: rotate(2deg); }
+      .hero-title-main {
+        position: relative;
+        font-size: clamp(4.4rem, 8.5vw, 7.2rem);
+        letter-spacing: -.02em;
+        white-space: nowrap;
+        text-transform: uppercase;
+        color: #171615;
+      }
+      .hero-title-year { 
+        margin-top: 10px; 
+        font-size: clamp(5.8rem, 11vw, 10.2rem); 
+        letter-spacing: -.03em; 
+        color: #171615;
+        font-weight: 900;
       }
 
-      .animate-wiggle-slow {
-        animation: wiggleSlow 4s ease-in-out infinite;
+      .hero-tags-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        max-width: 820px;
+        margin: 12px 0 14px;
+        padding: 0 16px;
+      }
+      .sticker {
+        display: inline-block;
+        padding: 7px 15px;
+        line-height: 1;
+        border-radius: 4px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        box-shadow: 0 2px 5px rgba(0,0,0,.08);
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      }
+      .sticker:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 12px rgba(0,0,0,.15); }
+      .sticker-pink { border: 1px solid #db2777; background: var(--pink); color: #500724; }
+      .sticker-blue { border: 1px solid #3b82f6; background: var(--blue); color: #0f172a; }
+      .sticker-yellow { border: 1px solid #fde047; background: var(--yellow); color: #713f12; }
+      .sticker-green { border: 1px solid #86efac; background: var(--green); color: #14532d; }
+      
+      .hero-tagline {
+        max-width: 680px;
+        margin: 4px 0 0;
+        padding: 0 12px;
+        font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+        line-height: 1.25;
+        font-weight: 800;
+        letter-spacing: -.035em;
+      }
+
+      .primary-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        min-height: 46px;
+        margin-top: 16px;
+        padding: 0 26px;
+        color: #fff;
+        background: var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: .19em;
+        box-shadow: 0 4px 0 rgba(0,0,0,.08);
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background .2s ease, box-shadow .2s ease;
+      }
+      .primary-button:hover { transform: translateY(-4px) scale(1.02); background: #303030; box-shadow: 0 8px 16px rgba(0,0,0,.15); }
+      .primary-button:active { transform: translateY(1px); }
+      .button-square { width: 12px; height: 12px; background: var(--blue); transition: transform 0.2s ease; }
+      .primary-button:hover .button-square { transform: rotate(90deg) scale(1.2); }
+      
+      .hero-curve {
+        position: absolute;
+        z-index: 0;
+        bottom: -4px;
+        left: -3%;
+        width: 106%;
+        height: 62px;
+        border-top: 1px solid rgba(30,30,30,.12);
+        border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+        pointer-events: none;
+      }
+
+      .page-content { width: min(92%, 1080px); margin: 0 auto; padding-bottom: 28px; }
+      .about-section { position: relative; padding: 45px 0 0; }
+      
+      .normal-label { 
+        display: block; 
+        color: #4b5563; 
+        font-family: 'Inter', sans-serif; 
+        font-size: 12px; 
+        font-weight: 800; 
+        text-transform: uppercase;
+        letter-spacing: .12em;
+      }
+      .projects-label { position: absolute; top: -27px; left: 2px; }
+
+      .about-intro {
+        display: grid;
+        grid-template-columns: 340px minmax(0, 1fr);
+        align-items: center;
+        gap: clamp(24px, 4vw, 56px);
+        padding-top: 5px;
+      }
+      .polaroid {
+        position: relative;
+        justify-self: center;
+        width: 100%;
+        max-width: 315px;
+        padding: 16px 16px 20px;
+        border: 1px solid #e1dfdc;
+        background: #fff;
+        box-shadow: 0 16px 24px rgba(0,0,0,.14);
+        transform-origin: top center;
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+        cursor: pointer;
+      }
+      .polaroid-left { transform: rotate(-2deg); }
+      .polaroid:hover {
+        transform: rotate(3deg) translateY(-6px) scale(1.02);
+        box-shadow: 0 24px 40px rgba(0,0,0,.22);
+      }
+      .tape {
+        position: absolute;
+        z-index: 2;
+        top: -10px;
+        left: 50%;
+        width: 70px;
+        height: 20px;
+        transform: translateX(-50%) rotate(-4deg);
+        opacity: .8;
+        box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      }
+      .tape-blue { background: #bcdcff; }
+      .polaroid-image { display: grid; place-items: center; aspect-ratio: 1 / 1; overflow: hidden; background: #f6f5f2; }
+      .polaroid-logo img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); transition: transform 0.4s ease; }
+      .polaroid:hover .polaroid-logo img { transform: scale(1.08); }
+      .polaroid-caption { margin: 10px 0 0; color: #555; text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+
+      .about-center { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; text-align: left; }
+      
+      .section-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 35px;
+        padding: 0 22px;
+        border: 1px solid #d0ced0;
+        background: rgba(255,255,255,.91);
+        font-size: 12.5px;
+        font-weight: 900;
+        letter-spacing: .14em;
+        white-space: nowrap;
+        box-shadow: 0 2px 4px rgba(0,0,0,.025);
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      }
+      .section-pill:hover {
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 4px 8px rgba(0,0,0,.08);
+      }
+
+      .about-copy {
+        width: 100%;
+        max-width: 720px;
+        margin: 20px 0 21px;
+        color: #171615;
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+        line-height: 1.68;
+        font-weight: 700;
+        letter-spacing: -.01em;
+        text-align: left;
+      }
+      
+      .skills-list { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px; max-width: 720px; }
+      .skill-tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 6px 14px;
+        border: 1px solid rgba(0,0,0,.08);
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 800;
+        box-shadow: 0 2px 5px rgba(0,0,0,.06);
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      }
+      .skill-tag:nth-child(4n + 1) { background: #facc15; color: #713f12 !important; }
+      .skill-tag:nth-child(4n + 2) { background: #22c55e; color: #14532d !important; }
+      .skill-tag:nth-child(4n + 3) { background: #60a5fa; color: #0f172a !important; }
+      .skill-tag:nth-child(4n) { background: #f472b6; color: #500724 !important; }
+      .skill-tag:hover { transform: translateY(-4px) scale(1.08); box-shadow: 0 6px 12px rgba(0,0,0,.15); }
+
+      /* FORMAÇÃO E EXPERIÊNCIA */
+      .career-container { width: min(100%, 920px); margin: 64px auto 0; }
+      .career-block { margin-top: 40px; }
+      .career-block:first-child { margin-top: 0; }
+      
+      .career-heading {
+        margin: 0 0 18px;
+        color: #171615;
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+        font-weight: 900;
+        letter-spacing: .12em;
+        line-height: 1.15;
+      }
+      
+      .education-card, .experience-card {
+        border: 1.5px solid rgba(0, 0, 0, 0.15);
+        background: #ffffff;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .education-card:hover, .experience-card:hover {
+        transform: translateY(-4px) scale(1.01);
+        border-color: rgba(0, 0, 0, 0.35);
+        box-shadow: 0 8px 20px rgba(0,0,0,.08);
+      }
+      
+      .education-card { 
+        position: relative; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 24px; 
+        border-radius: 6px; 
+        border-left: 6px solid var(--green) !important;
+        overflow: hidden;
+      }
+      .education-content-left { display: flex; align-items: center; gap: 20px; min-width: 0; }
+      .education-title { font-size: 14px; font-weight: 900; letter-spacing: .03em; color: #171615; text-transform: uppercase; }
+      .education-desc { margin: 4px 0 0; color: #4b5563; font-size: 13px; font-weight: 600; line-height: 1.5; }
+
+      .graduation-date { 
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0; 
+        padding: 6px 14px; 
+        border: 1px solid #14532d; 
+        border-radius: 4px; 
+        background: #22c55e; 
+        color: #14532d; 
+        font-size: 11px; 
+        font-weight: 900;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      }
+      
+      .experience-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .experience-card { 
+        display: flex; 
+        align-items: center; 
+        gap: 20px; 
+        min-height: 88px; 
+        padding: 16px 20px; 
+        border-radius: 6px; 
+        color: #171615;
+        position: relative;
+        overflow: hidden;
+      }
+      .experience-card:nth-child(4n + 1) { border-left: 6px solid var(--pink); }
+      .experience-card:nth-child(4n + 2) { border-left: 6px solid var(--blue); }
+      .experience-card:nth-child(4n + 3) { border-left: 6px solid var(--yellow); }
+      .experience-card:nth-child(4n) { border-left: 6px solid var(--green); }
+
+      .experience-logo-img { 
+        width: 52px; 
+        height: 52px; 
+        object-fit: contain; 
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+      }
+      
+      .experience-text-stack { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+      .experience-company { font-size: 12.5px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; color: #171615; }
+      .experience-role { font-size: 11px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: #555; }
+
+      .projects-section { position: relative; margin-top: 88px; scroll-margin-top: 100px; }
+      .projects-heading-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 0 2px; margin-bottom: 16px; }
+      .projects-heading { margin: 0; font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 900; letter-spacing: -.03em; line-height: 1; }
+      .projects-count { color: #666b74; font-size: 10px; font-weight: 800; letter-spacing: .13em; white-space: nowrap; }
+      
+      /* PASTA DE PROJETOS COM ABAS ESTÁVEIS E SEM VÃOS */
+      .project-folder {
+        position: relative;
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+      }
+      .project-folder:hover {
+        transform: translateY(-6px);
+      }
+
+      .project-tabs { 
+        position: relative; 
+        z-index: 5; 
+        display: flex; 
+        align-items: flex-end; 
+        padding-left: 0; 
+        gap: 0; 
+        background: transparent;
+        margin-bottom: 0;
+      }
+      .tab-btn {
+        position: relative;
+        z-index: 10;
+        min-height: 44px;
+        padding: 0 clamp(18px, 2.5vw, 32px);
+        border: 2px solid rgba(0,0,0,.15);
+        border-bottom: 2px solid rgba(0,0,0,.15);
+        cursor: pointer;
+        border-radius: 6px 6px 0 0;
+        margin-left: -2px;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: .14em;
+        white-space: nowrap;
+        transform: none !important;
+        transition: filter 0.15s ease;
+      }
+      .tab-btn:first-child { margin-left: 0; }
+      .tab-btn:hover { z-index: 30; filter: brightness(0.93); }
+      
+      .tab-proj1 { color: white; background: #18181b; }
+      .tab-proj2 { color: black; background: #facc15; }
+      .tab-proj3 { color: white; background: #2563eb; }
+      
+      .tab-btn.is-active {
+        z-index: 25;
+        margin-bottom: -2px;
+        border-bottom: 2px solid transparent;
+        transform: translateY(2px) !important;
+      }
+      .tab-proj1.is-active { border-bottom-color: #18181b; background: #18181b; }
+      .tab-proj2.is-active { border-bottom-color: #facc15; background: #facc15; }
+      .tab-proj3.is-active { border-bottom-color: #2563eb; background: #2563eb; }
+      
+      .project-panels { position: relative; z-index: 15; }
+      .project-panel {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+        align-items: center;
+        gap: clamp(24px, 4vw, 54px);
+        min-height: 420px;
+        padding: clamp(25px, 4vw, 48px);
+        overflow: hidden;
+        border-radius: 0 13px 13px 13px;
+        box-shadow: 0 17px 28px rgba(0,0,0,.17);
+        border: 2px solid rgba(0,0,0,.15);
+        border-top: none;
+        animation: panel-in .28s ease both;
+      }
+      @keyframes panel-in { from { opacity: .72; } to { opacity: 1; } }
+      
+      .panel-proj1 { color: #fff; background: #18181b; }
+      .panel-proj2 { color: #171615; background: #facc15; }
+      .panel-proj3 { color: #fff; background: #2563eb; }
+
+      .project-copy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+      .project-date { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; color: currentColor; opacity: .8; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+      .project-date::before { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: currentColor; content: ''; }
+      .project-intro h3 { max-width: 460px; margin: 0; font-size: clamp(2rem, 4.2vw, 3.4rem); font-weight: 900; letter-spacing: -.04em; line-height: .95; overflow-wrap: anywhere; }
+      .project-category { margin: 12px 0 0; opacity: .75; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .project-description { max-width: 440px; margin: 23px 0 0; font-size: 13px; line-height: 1.72; font-weight: 500; }
+      .panel-proj1 .project-description { color: #d4d4d8; }
+      .panel-proj2 .project-description { color: #27272a; }
+      .panel-proj3 .project-description { color: #e0e7ff; }
+      
+      .project-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 23px; }
+      .project-links a { padding-bottom: 4px; border-bottom: 2px solid currentColor; font-size: 10px; font-weight: 900; letter-spacing: .13em; transition: opacity .18s ease, transform .18s ease; }
+      .project-links a:hover { opacity: .65; transform: translateX(3px); }
+      
+      .project-visual { position: relative; min-width: 0; padding: 9px 4px 20px; }
+      
+      /* ESTILOS DO CARROSSEL DE MÍDIA */
+      .project-image-frame { position: relative; z-index: 1; width: 100%; aspect-ratio: 1.22 / 1; overflow: hidden; border: 2px solid rgba(0,0,0,.2); background: rgba(0,0,0,.15); box-shadow: 0 13px 26px rgba(0,0,0,.19); border-radius: 6px; }
+      .carousel-track { position: relative; width: 100%; height: 100%; }
+      .carousel-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
+      .carousel-slide.is-active-slide { opacity: 1; visibility: visible; z-index: 2; }
+      .carousel-slide img, .carousel-slide iframe { width: 100%; height: 100%; object-fit: cover; }
+      
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.3);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        font-weight: 900;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      .carousel-btn:hover { background: rgba(0, 0, 0, 0.85); transform: translateY(-50%) scale(1.1); }
+      .carousel-prev { left: 10px; }
+      .carousel-next { right: 10px; }
+
+      .carousel-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        gap: 6px;
+      }
+      .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.6);
+        background: rgba(0,0,0,0.4);
+        cursor: pointer;
+        padding: 0;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .carousel-dot.is-active-dot { background: #fff; transform: scale(1.25); }
+
+      .project-no-image { display: grid; place-items: center; height: 100%; color: currentColor; opacity: .65; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; }
+      .project-tape { position: absolute; z-index: 2; top: 0; width: 66px; height: 16px; background: rgba(245,245,245,.6); box-shadow: 0 1px 2px rgba(0,0,0,.09); }
+      .project-tape-left { left: 0; transform: rotate(-7deg); }
+      .project-tape-right { right: 0; transform: rotate(6deg); }
+      
+      .project-tags { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; margin-top: 14px; }
+      .project-tags span { padding: 7px 10px; border: 1px solid rgba(0,0,0,.2); color: #fff; background: rgba(0,0,0,.35); font-size: 9px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; border-radius: 4px; transition: transform 0.2s ease, background 0.2s ease; }
+      .project-tags span:hover { transform: translateY(-2px); background: rgba(0,0,0,.5); }
+      .panel-proj2 .project-tags span { border-color: rgba(0,0,0,.2); background: rgba(0,0,0,.15); color: #000; }
+      .panel-proj2 .project-tags span:hover { background: rgba(0,0,0,.25); }
+
+      .contact-section { display: flex; flex-direction: column; align-items: center; gap: 17px; padding: 83px 0 42px; text-align: center; scroll-margin-top: 100px; }
+      .contact-section h2 { margin: 0; font-size: clamp(1.45rem, 2.65vw, 2rem); line-height: 1.25; font-weight: 800; letter-spacing: -.035em; }
+      .contact-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 13px; }
+      .contact-email, .contact-github { display: inline-flex; align-items: center; justify-content: center; min-height: 41px; padding: 0 22px; border-radius: 999px; font-size: 10px; font-weight: 900; letter-spacing: .1em; transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background .18s ease, box-shadow .18s ease; }
+      .contact-email { color: #fff; background: #080808; }
+      .contact-github { border: 1px solid #d4d2d1; background: #fff; }
+      .contact-email:hover, .contact-github:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 6px 14px rgba(0,0,0,.15); }
+      .contact-github:hover { background: var(--yellow); }
+
+      @media (max-width: 1000px) {
+        .site-nav { gap: 12px; }
+        .nav-left { gap: 7px; }
+        .nav-link { padding-inline: 8px; font-size: 9px; letter-spacing: .09em; }
+        .nav-right { gap: 10px; }
+        .social-links { gap: 5px; }
+        .about-intro { grid-template-columns: 270px minmax(0, 1fr); gap: 28px; }
+        .polaroid { max-width: 250px; }
+        .project-panel { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 28px; }
+      }
+      @media (max-width: 760px) {
+        .site-background { padding: 16px 12px 25px; background-size: 36px 36px; }
+        .paper-sheet { width: min(96vw, 1280px); min-height: calc(100vh - 41px); }
+        .site-nav { min-height: 65px; padding: 12px 17px; }
+        .brand-mark { width: 26px; height: 26px; margin-right: 1px; }
+        .nav-link { padding: 0 10px; font-size: 8px; }
+        .social { width: 24px; height: 24px; }
+        .hero { padding: 50px 18px 70px; }
+        .sticker { padding: 6px 12px; font-size: 10px; }
+        .hero-tagline { margin-top: 24px; }
+        .page-content { width: 91%; }
+        .about-intro { grid-template-columns: 220px minmax(0, 1fr); gap: 20px; }
+        .polaroid { max-width: 200px; }
+        .about-copy { font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.7; text-align: left; }
+        .skill-tag { padding-inline: 10px; font-size: 10px; }
+        .career-container { margin-top: 45px; }
+        .experience-grid { grid-template-columns: 1fr; }
+        .project-panel { min-height: 0; padding: 27px; gap: 28px; }
+        .project-description { font-size: 12px; }
+        .contact-section { padding-top: 68px; }
+      }
+      @media (max-width: 600px) {
+        .site-background { padding: 8px 6px 16px; background-size: 28px 28px; }
+        .paper-sheet { width: 100%; }
+        .site-nav { align-items: flex-start; gap: 10px; padding: 12px 12px; }
+        .nav-left { flex-wrap: wrap; gap: 4px; }
+        .brand-mark { width: 23px; height: 23px; margin: 4px 3px 0 0; }
+        .hero { padding: 40px 14px 55px; }
+        .hero-tags-row { gap: 6px; margin: 10px 0 12px; }
+        .hero-title-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .about-intro { grid-template-columns: minmax(0, 1fr); gap: 18px; justify-items: center; }
+        .polaroid { max-width: 240px; margin: 0 auto; }
+        .about-center { align-items: center; text-align: center; grid-column: 1 / -1; }
+        .about-copy { text-align: center; }
+        .skills-list { justify-content: center; }
+        .projects-heading-row { align-items: flex-start; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+        .projects-heading { font-size: 2rem; }
+        .project-panel { grid-template-columns: minmax(0, 1fr); gap: 25px; padding: 25px 20px 23px; }
       }
     </style>
   </body>
