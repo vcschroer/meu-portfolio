@@ -1219,6 +1219,7 @@ const skills = [
       }
         @media (max-width: 600px) {
         .site-background { padding: 8px 6px 16px; background-size: 28px 28px; }
+        .site-nav-wrapper { width: 100%; }
         .paper-sheet { width: 100%; }
 
         .site-nav {
@@ -1265,13 +1266,19 @@ const skills = [
           padding: 4px 8px;
         }
 
+        /* CORREÇÃO DO VAZAMENTO DAS ABAS E OCULTAÇÃO DA BARRA DE ROLAGEM */
         .project-tabs {
+          display: flex;
           overflow-x: auto;
-          white-space: nowrap;
-          width: 100%;
+          max-width: 100%;
           padding-bottom: 2px;
-          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none; /* Firefox */
+          -webkit-overflow-scrolling: touch; /* iOS */
         }
+        .project-tabs::-webkit-scrollbar {
+          display: none; /* Chrome, Safari e Opera */
+        }
+
         .tab-btn {
           min-height: 36px;
           padding: 0 14px;
