@@ -576,13 +576,25 @@ const skills = [
         animation: scrollBackground 10s linear infinite;
       }
 
-      /* CONTAINER STICKY QUE MANTÉM A LARGURA DA FOLHA */
       .site-nav-wrapper {
         position: sticky;
         top: 0;
         z-index: 1000;
         width: min(92vw, 1280px);
         margin: 0 auto;
+      }
+
+      /* 2. Sincronize as larguras nas Media Queries para acompanharem a folha */
+      @media (max-width: 760px) {
+        .site-nav-wrapper {
+          width: min(96vw, 1280px); /* Garante a mesma largura da folha no mobile intermediário */
+        }
+      }
+
+      @media (max-width: 600px) {
+        .site-nav-wrapper {
+          width: 100%; /* No celular estreito, ambos ocupam 100% sem sobra nas laterais */
+        }
       }
 
       /* BARRA DE NAVEGAÇÃO */
@@ -1205,12 +1217,68 @@ const skills = [
         .project-description { font-size: 12px; }
         .contact-section { padding-top: 68px; }
       }
-      @media (max-width: 600px) {
+        @media (max-width: 600px) {
         .site-background { padding: 8px 6px 16px; background-size: 28px 28px; }
         .paper-sheet { width: 100%; }
-        .site-nav { align-items: flex-start; gap: 10px; padding: 12px 12px; }
-        .nav-left { flex-wrap: wrap; gap: 4px; }
-        .brand-mark { width: 23px; height: 23px; margin: 4px 3px 0 0; }
+
+        .site-nav {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 8px;
+        }
+        .nav-left {
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+        .nav-right {
+          justify-content: center;
+          gap: 8px;
+        }
+        .nav-link {
+          padding: 0 8px;
+          min-height: 28px;
+          font-size: 8px;
+        }
+
+        .education-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+        }
+        .education-content-left {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .education-title {
+          font-size: 12px;
+        }
+        .education-desc {
+          font-size: 11px;
+        }
+        .graduation-date {
+          align-self: flex-start;
+          font-size: 9px;
+          padding: 4px 8px;
+        }
+
+        .project-tabs {
+          overflow-x: auto;
+          white-space: nowrap;
+          width: 100%;
+          padding-bottom: 2px;
+          -webkit-overflow-scrolling: touch;
+        }
+        .tab-btn {
+          min-height: 36px;
+          padding: 0 14px;
+          font-size: 9px;
+          flex-shrink: 0;
+        }
+
         .hero { padding: 40px 14px 55px; }
         .hero-tags-row { gap: 6px; margin: 10px 0 12px; }
         .hero-title-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
