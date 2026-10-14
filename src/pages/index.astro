@@ -65,7 +65,7 @@ const experiences: Experience[] = [
 const projects: Project[] = [
   {
     id: "proj1",
-    tabTitle: "PROJETO 01",
+    tabTitle: "STACKED PIRATES",
     title: "STACKED PIRATES",
     date: "26 JUL, 2026",
     description: "Um puzzle isométrico em que a sua tripulação é a principal mecânica para interagir com o cenário, explorar ilhas e encontrar os baús escondidos. Projeto acadêmico feito em 4 meses, desenvolvido inteiramente por mim: assumi todo o ciclo de criação, incluindo os modelos 3D, Shaders/VFX, sistemas de gameplay e arquitetura do jogo.",
@@ -88,18 +88,19 @@ const projects: Project[] = [
       subText: "text-zinc-300"
     }
   },
-  {
+    {
     id: "proj2",
-    tabTitle: "PROJETO 02",
-    title: "SPELL SLOT",
-    date: "29 MAI, 2026",
-    description: "Exemplo.",
-    tags: ["C#", "Unity", "ShadersLab", "GitHub"],
+    tabTitle: "IRON BLOOD",
+    title: "IRON BLOOD",
+    date: "11 DEZ, 2024",
+    description: "Um 2D Action Platformer no estilo Boss Rush em que a cada morte o jogador desbloqueia novas habilidades e ataques, limitados a 7 tentativas, sendo que a oitava morte reseta todo o progresso. Meu primeiro projeto de programação, onde assumi o desenvolvimento dos sistemas, efeitos visuais e parte da arte do jogo.",
+    tags: ["C#", "Unity", "Photoshop"],
     media: [
-      { type: 'image', url: "prints/outro-1.png", alt: "Spell Slot Tela 1" },
-      { type: 'image', url: "prints/camera_icon.png", alt: "Spell Slot Tela 2" }
+      { type: 'video', url: "videos/video-iron-blood.mp4" },
+      { type: 'image', url: "prints/iron-blood1.png" },
+      { type: 'image', url: "prints/iron-blood2.png" },      
     ],
-    links: { github: "https://github.com/vcschroer/SpellSlot", steam: "https://store.steampowered.com/app/4695990/pell_lot/" },
+    links: { itchio: "https://vcschroer.itch.io/iron-blood" },
     styles: {
       tabBg: "bg-[#facc15]",
       tabText: "text-black",
@@ -108,36 +109,22 @@ const projects: Project[] = [
       subText: "text-zinc-900"
     }
   },
-  {
-    id: "proj3",
-    tabTitle: "PROJETO 03",
-    title: "OUTRO JOGO",
-    date: "15 DEZ, 2025",
-    description: "Exemplo.",
-    tags: ["C#", "Unity"],
-    media: [
-      { type: 'image', url: "prints/camera_icon.png", alt: "Outro Jogo Tela 1" }
-    ],
-    links: { github: "https://github.com", itchio: "https://itch.io" },
-    styles: {
-      tabBg: "bg-[#2563eb]",
-      tabText: "text-white",
-      bodyBg: "bg-[#2563eb]",
-      bodyText: "text-white",
-      subText: "text-blue-100"
-    }
-  },
     {
     id: "proj4",
-    tabTitle: "PROJETO 03",
-    title: "OUTRO JOGO",
-    date: "15 DEZ, 2025",
-    description: "Exemplo.",
-    tags: ["C#", "Unity"],
+    tabTitle: "SPELL SLOT",
+    title: "SPELL SLOT",
+    date: "29 MAI, 2026",
+    description: "Um bullet hell em que a mecânica de apostas é o elemento central para evoluir suas armas e derrotar hordas de inimigos. Projeto em fase de desenvolvimento da primeira demo com página ativa na Steam, onde assumi 100% da programação, sistemas de gameplay e efeitos visuais.",
+    tags: ["C#", "Unity", "ShadersLab", "GitHub"],
     media: [
-      { type: 'image', url: "prints/camera_icon.png", alt: "Outro Jogo Tela 1" }
+      { type: 'video', url: "videos/video-spell-slot.mov" },
+      { type: 'image', url: "prints/spell-slot1.png" },
+      { type: 'image', url: "prints/spell-slot2.png" },
+      { type: 'image', url: "prints/spell-slot3.png" },
+      { type: 'image', url: "prints/spell-slot4.png" },
+      
     ],
-    links: { github: "https://github.com", itchio: "https://itch.io" },
+    links: { github: "https://github.com/vcschroer/SpellSlot", steam: "https://store.steampowered.com/app/4695990/pell_lot/" },
     styles: {
       tabBg: "bg-[#18181b]",
       tabText: "text-white",
@@ -145,11 +132,33 @@ const projects: Project[] = [
       bodyText: "text-white",
       subText: "text-zinc-300"
     }
+  },
+    {
+    id: "proj3",
+    tabTitle: "PORTFÓLIO",
+    title: "SITE PORTFÓLIO 2026",
+    date: "14 OUT, 2026",
+    description: "Meu site de portfólio pessoal, feito do zero e 100% por mim para apresentar meus projetos. Desenvolvido com Astro, conta com design responsivo para computadores e dispositivos móveis, sistema dinâmico de abas e estilização customizada.",
+    tags: ["Astro", "JavaScript", "HTML5", "CSS3", "GitHub"],
+    media: [
+      { type: 'image', url: "prints/port1.png"},
+      { type: 'image', url: "prints/port2.png"},
+      { type: 'image', url: "prints/port3.png"},
+      { type: 'image', url: "prints/port4.png"},
+
+    ],
+    links: { github: "https://github.com" },
+    styles: {
+      tabBg: "bg-[#2563eb]",
+      tabText: "text-white",
+      bodyBg: "bg-[#2563eb]",
+      bodyText: "text-white",
+      subText: "text-blue-100"
+    }
   }
 ];
 
 const skills = [
-// Jogos & Shaders
   "C#", "JavaScript", "Python", "HTML5", "CSS3", "Astro", "HLSL", "GitHub",  
   "Unity", "Godot", "ShadersLab", 
   "Blender", "Photoshop", "Premiere", "After Effects"
@@ -1059,9 +1068,9 @@ const skills = [
       .tab-btn:hover { z-index: 30; filter: brightness(0.93); }
       
       .tab-proj1 { color: white; background: #18181b; }
-      .tab-proj2 { color: black; background: #facc15; }
+      .tab-proj2 { color: black; background: #dbb931; }
       .tab-proj3 { color: white; background: #2563eb; }
-      .tab-proj4 { color: white; background: #22c55e; }
+      .tab-proj4 { color: white; background: #39b868; }
 
       
       .tab-btn.is-active {
@@ -1071,9 +1080,9 @@ const skills = [
         transform: translateY(2px) !important;
       }
       .tab-proj1.is-active { border-bottom-color: #18181b; background: #18181b; }
-      .tab-proj2.is-active { border-bottom-color: #facc15; background: #facc15; }
+      .tab-proj2.is-active { border-bottom-color: #dbb931; background: #dbb931; }
       .tab-proj3.is-active { border-bottom-color: #2563eb; background: #2563eb; }
-      .tab-proj4.is-active { border-bottom-color: #22c55e; background: #22c55e; }
+      .tab-proj4.is-active { border-bottom-color: #39b868; background: #39b868; }
 
       
       .project-panels { position: relative; z-index: 15; }
@@ -1095,9 +1104,9 @@ const skills = [
       @keyframes panel-in { from { opacity: .72; } to { opacity: 1; } }
       
       .panel-proj1 { color: #fff; background: #18181b; }
-      .panel-proj2 { color: #171615; background: #facc15; }
+      .panel-proj2 { color: #1b1b1b; background: #dbb931; }
       .panel-proj3 { color: #fff; background: #2563eb; }
-      .panel-proj4 { color: #fff; background: #22c55e; }
+      .panel-proj4 { color: #fff; background: #39b868; }
 
 
       .project-copy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
@@ -1106,7 +1115,7 @@ const skills = [
       .project-intro h3 { max-width: 460px; margin: 0; font-size: clamp(2rem, 4.2vw, 3.4rem); font-weight: 900; letter-spacing: -.04em; line-height: .95; overflow-wrap: anywhere; }
       .project-description { max-width: 440px; margin: 23px 0 0; font-size: 13px; line-height: 1.72; font-weight: 500; }
       .panel-proj1 .project-description { color: #d4d4d8; }
-      .panel-proj2 .project-description { color: #27272a; }
+      .panel-proj2 .project-description { color: #1b1b1b; }
       .panel-proj3 .project-description { color: #e0e7ff; }
       .panel-proj4 .project-description { color: #e0e7ff; }
 
