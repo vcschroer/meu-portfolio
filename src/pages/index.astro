@@ -159,14 +159,17 @@ const skills = [
 <!doctype html>
 <html lang="pt-BR" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#9299a6" />
-    <title>Portfólio — Vittória</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  </head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#9299a6" />
+      
+      <link rel="icon" type="image/png" href="prints/port icon.png" />
+
+      <title>Portfólio — Vittória</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    </head>
 
   <body>
     <div class="site-background">
@@ -559,7 +562,6 @@ const skills = [
       img, iframe, video { display: block; width: 100%; height: 100%; object-fit: cover; border: none; }
       [hidden] { display: none !important; }
 
-      /* ANIMAÇÃO CONTÍNUA DO FUNDO (GRID SCROLL) COM VELOCIDADE AUMENTADA (10s) */
       @keyframes scrollBackground {
         0% { background-position: 0 0; }
         100% { background-position: 50px 50px; }
@@ -584,7 +586,6 @@ const skills = [
         margin: 0 auto;
       }
 
-      /* 2. Sincronize as larguras nas Media Queries para acompanharem a folha */
       @media (max-width: 760px) {
         .site-nav-wrapper {
           width: min(96vw, 1280px); /* Garante a mesma largura da folha no mobile intermediário */
@@ -687,7 +688,6 @@ const skills = [
         box-shadow: 0 18px 48px rgba(20, 22, 28, .19);
       }
 
-      /* HERO */
       .hero {
         position: relative;
         display: flex;
