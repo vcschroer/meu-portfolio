@@ -13,7 +13,7 @@ interface Links {
 
 interface MediaItem {
   type: 'image' | 'youtube' | 'video';
-  url: string; // Caminho da imagem ou ID do vídeo do YouTube
+  url: string;
   alt?: string;
 }
 
@@ -183,7 +183,7 @@ const skills = [
   <body>
     <div class="site-background">
       <div class="site-nav-wrapper">
-        <!-- BARRA DE NAVEGAÇÃO COM EFEITOS -->
+        <!-- BARRA DE NAVEGAÇÃO -->
         <nav class="site-nav" aria-label="Navegação principal">
           <div class="nav-left">
             <a class="nav-link interactive hover-sound" href="#inicio">INÍCIO</a>
@@ -195,7 +195,7 @@ const skills = [
               <a class="social interactive hover-sound" href="https://www.linkedin.com/in/vcschroer" aria-label="LinkedIn">
                 <img src="prints/linkedinicon.png" alt="LinkedIn" />
               </a>
-              <a class="social interactive hover-sound" href="https://github.com/vcschroer" aria-label="Dribbble">
+              <a class="social interactive hover-sound" href="https://github.com/vcschroer" aria-label="GitHub">
                 <img src="prints/githubicon.png" alt="GitHub" />
               </a>
             </div>
@@ -205,7 +205,7 @@ const skills = [
       </div>
 
       <main class="paper-sheet" id="inicio">
-        <!-- HERO -->
+        <!-- SEÇÃO HERO -->
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-availability-wrap">
             <p class="availability">
@@ -221,7 +221,6 @@ const skills = [
             </h1>
           </div>
 
-          <!-- TAGS -->
           <div class="hero-tags-row">
             <span class="sticker sticker-pink interactive hover-sound">GAME DEV</span>
             <span class="sticker sticker-blue interactive hover-sound">SITES & WEB</span>
@@ -237,7 +236,7 @@ const skills = [
         </section>
 
           <div class="page-content">
-          <!-- SOBRE MIM -->
+          <!-- SEÇÃO SOBRE -->
           <section id="sobre" class="about-section" aria-labelledby="about-heading">
             <div class="about-intro">
               <div class="polaroid polaroid-left interactive hover-sound" aria-label="Foto de Vittória">
@@ -259,7 +258,7 @@ const skills = [
               </div>
             </div>
 
-            <!-- FORMAÇÃO E EXPERIÊNCIA -->
+            <!-- SEÇÃO FORMAÇÃO E EXPERIÊNCIA -->
             <div class="career-container">
               <div class="career-block">
                 <h3 class="career-heading">FORMAÇÃO ACADÊMICA</h3>
@@ -292,7 +291,7 @@ const skills = [
             </div>
           </section>
 
-          <!-- PROJETOS / CASE STUDIES -->
+          <!-- SEÇÃO PROJETOS -->
           <section id="projetos" class="projects-section" aria-labelledby="projects-heading">
             <span class="normal-label projects-label">Projetos selecionados</span>
             <div class="projects-heading-row">
@@ -300,7 +299,6 @@ const skills = [
               <span class="projects-count">{projects.length} PROJETOS</span>
             </div>
 
-            <!-- Pasta contendo o som de hover no corpo principal -->
             <div class="project-folder hover-sound" data-nosub="true">
               <div class="project-tabs" role="tablist" aria-label="Selecionar projeto">
                 {projects.map((project, index) => (
@@ -353,7 +351,6 @@ const skills = [
                       <span class="project-tape project-tape-left" aria-hidden="true"></span>
                       <span class="project-tape project-tape-right" aria-hidden="true"></span>
                       
-                      <!-- CARROSSEL DE MÍDIA (FOTOS E VÍDEOS) -->
                       <div class="project-image-frame carousel-container" data-project-id={project.id}>
                         {project.media && project.media.length > 0 ? (
                           <>
@@ -403,7 +400,7 @@ const skills = [
             </div>
           </section>
 
-          <!-- CONTATO -->
+          <!-- SEÇÃO CONTATO -->
           <section id="contato" class="contact-section" aria-labelledby="contact-heading">
             <div class="section-pill interactive hover-sound">VAMOS CONVERSAR</div>
             <h2 id="contact-heading">Gostou do meu trabalho? Entre em contato!</h2>
@@ -416,7 +413,7 @@ const skills = [
       </main>
     </div>
 
-    <!-- SCRIPT DE ÁUDIO & INTERAÇÕES -->
+    <!-- SCRIPT DE ÁUDIO E INTERAÇÕES -->
     <script>
       let audioCtx = null;
       let isPlayingSound = false;
@@ -477,7 +474,6 @@ const skills = [
         });
       }
 
-      // Lógica do Carrossel de Mídia (Fotos / Vídeos)
       document.querySelectorAll('.carousel-container').forEach((carousel) => {
         const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
         const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
@@ -597,17 +593,16 @@ const skills = [
 
       @media (max-width: 760px) {
         .site-nav-wrapper {
-          width: min(96vw, 1280px); /* Garante a mesma largura da folha no mobile intermediário */
+          width: min(96vw, 1280px);
         }
       }
 
       @media (max-width: 600px) {
         .site-nav-wrapper {
-          width: 100%; /* No celular estreito, ambos ocupam 100% sem sobra nas laterais */
+          width: 100%;
         }
       }
 
-      /* BARRA DE NAVEGAÇÃO */
       .site-nav {
         display: flex;
         align-items: center;
@@ -778,7 +773,7 @@ const skills = [
       .sticker-yellow { border: 1px solid #fde047; background: var(--yellow); color: #713f12; }
       .sticker-green { border: 1px solid #86efac; background: var(--green); color: #14532d; }
       
-        .hero-tagline {
+      .hero-tagline {
         max-width: 900px;
         margin: 4px 0 0;
         padding: 0 12px;
@@ -937,7 +932,6 @@ const skills = [
       .skill-tag:nth-child(4n) { background: #f472b6; color: #500724 !important; }
       .skill-tag:hover { transform: translateY(-4px) scale(1.08); box-shadow: 0 6px 12px rgba(0,0,0,.15); }
 
-      /* FORMAÇÃO E EXPERIÊNCIA */
       .career-container { width: min(100%, 920px); margin: 64px auto 0; }
       .career-block { margin-top: 40px; }
       .career-block:first-child { margin-top: 0; }
@@ -1028,7 +1022,6 @@ const skills = [
       .projects-heading { margin: 0; font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 900; letter-spacing: -.03em; line-height: 1; }
       .projects-count { color: #666b74; font-size: 10px; font-weight: 800; letter-spacing: .13em; white-space: nowrap; }
       
-      /* PASTA DE PROJETOS COM ABAS ESTÁVEIS E SEM VÃOS */
       .project-folder {
         position: relative;
         transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
@@ -1068,11 +1061,10 @@ const skills = [
       .tab-btn:hover { z-index: 30; filter: brightness(0.93); }
       
       .tab-proj1 { color: white; background: #18181b; }
-      .tab-proj2 { color: black; background: #fde047; }
+      .tab-proj2 { color: #171615; background: #facc15; }
       .tab-proj3 { color: white; background: #2563eb; }
       .tab-proj4 { color: white; background: #39b868; }
 
-      
       .tab-btn.is-active {
         z-index: 25;
         margin-bottom: -2px;
@@ -1080,11 +1072,10 @@ const skills = [
         transform: translateY(2px) !important;
       }
       .tab-proj1.is-active { border-bottom-color: #18181b; background: #18181b; }
-      .tab-proj2.is-active { border-bottom-color: #fde047; background: #fde047; }
+      .tab-proj2.is-active { border-bottom-color: #facc15; background: #facc15; }
       .tab-proj3.is-active { border-bottom-color: #2563eb; background: #2563eb; }
       .tab-proj4.is-active { border-bottom-color: #39b868; background: #39b868; }
 
-      
       .project-panels { position: relative; z-index: 15; }
       .project-panel {
         position: relative;
@@ -1104,10 +1095,9 @@ const skills = [
       @keyframes panel-in { from { opacity: .72; } to { opacity: 1; } }
       
       .panel-proj1 { color: #fff; background: #18181b; }
-      .panel-proj2 { color: #1b1b1b; background: #fde047; }
+      .panel-proj2 { color: #171615; background: #facc15; }
       .panel-proj3 { color: #fff; background: #2563eb; }
       .panel-proj4 { color: #fff; background: #39b868; }
-
 
       .project-copy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
       .project-date { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; color: currentColor; opacity: .8; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
@@ -1115,18 +1105,16 @@ const skills = [
       .project-intro h3 { max-width: 460px; margin: 0; font-size: clamp(2rem, 4.2vw, 3.4rem); font-weight: 900; letter-spacing: -.04em; line-height: .95; overflow-wrap: anywhere; }
       .project-description { max-width: 440px; margin: 23px 0 0; font-size: 13px; line-height: 1.72; font-weight: 500; }
       .panel-proj1 .project-description { color: #d4d4d8; }
-      .panel-proj2 .project-description { color: #1b1b1b; }
+      .panel-proj2 .project-description { color: #171615; }
       .panel-proj3 .project-description { color: #e0e7ff; }
       .panel-proj4 .project-description { color: #e0e7ff; }
 
-      
       .project-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 23px; }
       .project-links a { padding-bottom: 4px; border-bottom: 2px solid currentColor; font-size: 10px; font-weight: 900; letter-spacing: .13em; transition: opacity .18s ease, transform .18s ease; }
       .project-links a:hover { opacity: .65; transform: translateX(3px); }
       
       .project-visual { position: relative; min-width: 0; padding: 9px 4px 20px; }
       
-      /* ESTILOS DO CARROSSEL DE MÍDIA */
       .project-image-frame { position: relative; z-index: 1; width: 100%; aspect-ratio: 1.22 / 1; overflow: hidden; border: 2px solid rgba(0,0,0,.2); background: rgba(0,0,0,.15); box-shadow: 0 13px 26px rgba(0,0,0,.19); border-radius: 6px; }
       .carousel-track { position: relative; width: 100%; height: 100%; }
       .carousel-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
@@ -1184,7 +1172,7 @@ const skills = [
       .project-tags { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; margin-top: 14px; }
       .project-tags span { padding: 7px 10px; border: 1px solid rgba(0,0,0,.2); color: #fff; background: rgba(0,0,0,.35); font-size: 9px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; border-radius: 4px; transition: transform 0.2s ease, background 0.2s ease; }
       .project-tags span:hover { transform: translateY(-2px); background: rgba(0,0,0,.5); }
-      .panel-proj2 .project-tags span { border-color: rgba(0,0,0,.2); background: rgba(0,0,0,.15); color: #000; }
+      .panel-proj2 .project-tags span { border-color: rgba(0,0,0,.2); background: rgba(0,0,0,.15); color: #171615; }
       .panel-proj2 .project-tags span:hover { background: rgba(0,0,0,.25); }
 
       .contact-section { display: flex; flex-direction: column; align-items: center; gap: 17px; padding: 83px 0 42px; text-align: center; scroll-margin-top: 100px; }
@@ -1226,7 +1214,7 @@ const skills = [
         .project-description { font-size: 12px; }
         .contact-section { padding-top: 68px; }
       }
-        @media (max-width: 600px) {
+      @media (max-width: 600px) {
         .site-background { padding: 8px 6px 16px; background-size: 28px 28px; }
         .site-nav-wrapper { width: 100%; }
         .paper-sheet { width: 100%; }
@@ -1275,17 +1263,16 @@ const skills = [
           padding: 4px 8px;
         }
 
-        /* CORREÇÃO DO VAZAMENTO DAS ABAS E OCULTAÇÃO DA BARRA DE ROLAGEM */
         .project-tabs {
           display: flex;
           overflow-x: auto;
           max-width: 100%;
           padding-bottom: 2px;
-          scrollbar-width: none; /* Firefox */
-          -webkit-overflow-scrolling: touch; /* iOS */
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
         }
         .project-tabs::-webkit-scrollbar {
-          display: none; /* Chrome, Safari e Opera */
+          display: none;
         }
 
         .tab-btn {
