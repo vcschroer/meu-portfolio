@@ -23,6 +23,7 @@ interface Project {
   title: string;
   date: string;
   description: string;
+  descriptionEn: string;
   tags: string[];
   media: MediaItem[];
   links?: Links;
@@ -38,28 +39,35 @@ interface Project {
 interface Experience {
   company: string;
   role: string;
+  roleEn: string;
   logo: string;
 }
 
 interface Education {
   degree: string;
+  degreeEn: string;
   description: string;
+  descriptionEn: string;
   prediction: string;
+  predictionEn: string;
   logo: string;
 }
 
 const education: Education = {
   degree: "JOGOS DIGITAIS - TECNÓLOGO",
+  degreeEn: "DIGITAL GAMES - ASSOCIATE DEGREE",
   description: "Tecnólogo em Desenvolvimento de Jogos & Sistemas Interativos",
+  descriptionEn: "Associate Degree in Game Development & Interactive Systems",
   prediction: "PREVISÃO: 02/2027",
+  predictionEn: "EXPECTED: 02/2027",
   logo: "prints/feevale_logo.png"
 };
 
 const experiences: Experience[] = [
-  { company: "Grupo RBS", role: "Programadora", logo: "prints/rbs-tv-logo.png" },
-  { company: "Bad Moth", role: "Programadora", logo: "prints/badmoth_studios_logo_sem_fundo.png" },
-  { company: "Little Devil", role: "Artista Técnico", logo: "prints/little_devil-Photoroom.png" },
-  { company: "Editora de Vídeos", role: "Freelancer", logo: "prints/camera_icon.png" },
+  { company: "Grupo RBS", role: "Programadora", roleEn: "Programmer", logo: "prints/rbs-tv-logo.png" },
+  { company: "Bad Moth", role: "Programadora", roleEn: "Programmer", logo: "prints/badmoth_studios_logo_sem_fundo.png" },
+  { company: "Little Devil", role: "Artista Técnico", roleEn: "Technical Artist", logo: "prints/little_devil-Photoroom.png" },
+  { company: "Freelancer", role: "Editora de videos", roleEn: "Video editor", logo: "prints/camera_icon.png" },
 ];
 
 const projects: Project[] = [
@@ -69,6 +77,7 @@ const projects: Project[] = [
     title: "STACKED PIRATES",
     date: "26 JUL, 2026",
     description: "Um puzzle isométrico em que a sua tripulação é a principal mecânica para interagir com o cenário, explorar ilhas e encontrar os baús escondidos. Projeto acadêmico feito em 4 meses, desenvolvido inteiramente por mim: assumi todo o ciclo de criação, incluindo os modelos 3D, Shaders/VFX, sistemas de gameplay e arquitetura do jogo.",
+    descriptionEn: "An isometric puzzle where your crew is the main mechanic to interact with the environment, explore islands, and find hidden chests. Academic project made in 4 months, entirely developed by me: I handled the entire creation cycle, including 3D models, Shaders/VFX, gameplay systems, and game architecture.",
     tags: ["C#", "Unity", "ShadersLab", "Blender", "GitHub"],
     media: [
       { type: 'video', url: "videos/video stacked pirates.mov" },
@@ -88,12 +97,13 @@ const projects: Project[] = [
       subText: "text-zinc-300"
     }
   },
-    {
+  {
     id: "proj2",
     tabTitle: "IRON BLOOD",
     title: "IRON BLOOD",
     date: "11 DEZ, 2024",
     description: "Um 2D Action Platformer no estilo Boss Rush em que a cada morte o jogador desbloqueia novas habilidades e ataques, limitados a 7 tentativas, sendo que a oitava morte reseta todo o progresso. Meu primeiro projeto de programação, onde assumi o desenvolvimento dos sistemas, efeitos visuais e parte da arte do jogo.",
+    descriptionEn: "A 2D Action Platformer Boss Rush where every death unlocks new abilities and attacks up to 7 attempts, with the 8th death resetting all progress. My first programming project, where I handled systems development, visual effects, and part of the game's art.",
     tags: ["C#", "Unity", "Photoshop"],
     media: [
       { type: 'video', url: "videos/video-iron-blood.mp4" },
@@ -109,12 +119,13 @@ const projects: Project[] = [
       subText: "text-zinc-900"
     }
   },
-    {
+  {
     id: "proj4",
     tabTitle: "SPELL SLOT",
     title: "SPELL SLOT",
     date: "29 MAI, 2026",
     description: "Um bullet hell em que a mecânica de apostas é o elemento central para evoluir suas armas e derrotar hordas de inimigos. Projeto em fase de desenvolvimento da primeira demo com página ativa na Steam, onde assumi 100% da programação, sistemas de gameplay e efeitos visuais.",
+    descriptionEn: "A bullet hell where a betting mechanic is the central element to evolve your weapons and defeat hordes of enemies. Project in development for the first demo with an active Steam page, where I handled 100% of programming, gameplay systems, and visual effects.",
     tags: ["C#", "Unity", "ShadersLab", "GitHub"],
     media: [
       { type: 'video', url: "videos/video-spell-slot.mov" },
@@ -122,7 +133,6 @@ const projects: Project[] = [
       { type: 'image', url: "prints/spell-slot2.png" },
       { type: 'image', url: "prints/spell-slot3.png" },
       { type: 'image', url: "prints/spell-slot4.png" },
-      
     ],
     links: { github: "https://github.com/vcschroer/SpellSlot", steam: "https://store.steampowered.com/app/4695990/pell_lot/" },
     styles: {
@@ -133,19 +143,19 @@ const projects: Project[] = [
       subText: "text-zinc-300"
     }
   },
-    {
+  {
     id: "proj3",
     tabTitle: "PORTFÓLIO",
     title: "SITE PORTFÓLIO 2026",
     date: "14 OUT, 2026",
     description: "Meu site de portfólio pessoal, feito do zero e 100% por mim para apresentar meus projetos. Desenvolvido com Astro, conta com design responsivo para computadores e dispositivos móveis, sistema dinâmico de abas e estilização customizada.",
+    descriptionEn: "My personal portfolio website, built from scratch and 100% by me to showcase my projects. Developed with Astro, it features a responsive design for computers and mobile devices, a dynamic tab system, and custom styling.",
     tags: ["Astro", "JavaScript", "HTML5", "CSS3", "GitHub"],
     media: [
       { type: 'image', url: "prints/port1.png"},
       { type: 'image', url: "prints/port2.png"},
       { type: 'image', url: "prints/port3.png"},
       { type: 'image', url: "prints/port4.png"},
-
     ],
     links: { github: "https://github.com" },
     styles: {
@@ -186,20 +196,20 @@ const skills = [
         <!-- BARRA DE NAVEGAÇÃO -->
         <nav class="site-nav" aria-label="Navegação principal">
           <div class="nav-left">
-            <a class="nav-link interactive hover-sound" href="#inicio">INÍCIO</a>
-            <a class="nav-link interactive hover-sound" href="#sobre">SOBRE</a>
-            <a class="nav-link interactive hover-sound" href="#projetos">PROJETOS</a>
+            <a class="nav-link interactive hover-sound" href="#inicio" data-i18n="navInicio">INÍCIO</a>
+            <a class="nav-link interactive hover-sound" href="#sobre" data-i18n="navSobre">SOBRE</a>
+            <a class="nav-link interactive hover-sound" href="#projetos" data-i18n="navProjetos">PROJETOS</a>
           </div>
           <div class="nav-right">
-            <div class="social-links" aria-label="Redes sociais">
-              <a class="social interactive hover-sound" href="https://www.linkedin.com/in/vcschroer" aria-label="LinkedIn">
-                <img src="prints/linkedinicon.png" alt="LinkedIn" />
-              </a>
-              <a class="social interactive hover-sound" href="https://github.com/vcschroer" aria-label="GitHub">
-                <img src="prints/githubicon.png" alt="GitHub" />
-              </a>
+            <div class="social-links" aria-label="Idioma">
+              <button class="social interactive hover-sound lang-btn" id="btn-pt" aria-label="Português" title="Português">
+                <img src="prints/brasil.png" alt="PT" />
+              </button>
+              <button class="social interactive hover-sound lang-btn" id="btn-en" aria-label="English" title="English">
+                <img src="prints/estados-unidos.png" alt="EN" />
+              </button>
             </div>
-            <a class="nav-link nav-contact-btn interactive hover-sound" href="#contato">CONTATO</a>
+            <a class="nav-link nav-contact-btn interactive hover-sound" href="#contato" data-i18n="navContato">CONTATO</a>
           </div>
         </nav>
       </div>
@@ -210,13 +220,15 @@ const skills = [
           <div class="hero-availability-wrap">
             <p class="availability">
               <span class:list={["availability-dot", !isAvailable && "dot-red"]}></span> 
-              {isAvailable ? "DISPONÍVEL PARA NOVOS PROJETOS" : "NÃO DISPONÍVEL PARA NOVOS PROJETOS"}
+              <span id="availability-text" data-pt="DISPONÍVEL PARA NOVOS PROJETOS" data-en="AVAILABLE FOR NEW PROJECTS">
+                {isAvailable ? "DISPONÍVEL PARA NOVOS PROJETOS" : "NÃO DISPONÍVEL PARA NOVOS PROJETOS"}
+              </span>
             </p>
           </div>
 
           <div class="hero-title-wrap">
             <h1 id="hero-title" class="hero-title">
-              <span class="hero-title-main hover-sound portfolio-title-hover">PORTFÓLIO</span>
+              <span class="hero-title-main hover-sound portfolio-title-hover" data-i18n="heroTitleMain">PORTFÓLIO</span>
               <span class="hero-title-year hover-sound portfolio-title-hover">2026</span>
             </h1>
           </div>
@@ -224,14 +236,14 @@ const skills = [
           <div class="hero-tags-row">
             <span class="sticker sticker-pink interactive hover-sound">GAME DEV</span>
             <span class="sticker sticker-blue interactive hover-sound">SITES & WEB</span>
-            <span class="sticker sticker-yellow interactive hover-sound">PROGRAMADORA</span>
-            <span class="sticker sticker-green interactive hover-sound">BRASIL, RS</span>
+            <span class="sticker sticker-yellow interactive hover-sound" data-i18n="tagDev">PROGRAMADORA</span>
+            <span class="sticker sticker-green interactive hover-sound" data-i18n="tagLocation">BRASIL, RS</span>
           </div>
 
-          <h2 class="hero-tagline">
+          <h2 class="hero-tagline" data-i18n="heroTagline">
              Programo jogos, sites e experiências digitais.
           </h2>
-          <a class="primary-button interactive hover-sound" href="#contato"><span class="button-square" aria-hidden="true"></span> ENTRE EM CONTATO</a>
+          <a class="primary-button interactive hover-sound" href="#contato"><span class="button-square" aria-hidden="true"></span> <span data-i18n="contactBtn">ENTRE EM CONTATO</span></a>
           <div class="hero-curve" aria-hidden="true"></div>
         </section>
 
@@ -248,8 +260,8 @@ const skills = [
               </div>
 
               <div class="about-center">
-                <div id="about-heading" class="section-pill interactive hover-sound">QUEM SOU EU?</div>
-                <p class="about-copy">
+                <div id="about-heading" class="section-pill interactive hover-sound" data-i18n="aboutPill">QUEM SOU EU?</div>
+                <p class="about-copy" data-pt="Oi! Sou a Vittória, tenho 20 anos e sou programadora focada no desenvolvimento de jogos e sistemas interativos. Atualmente curso Jogos Digitais e atuo construindo mecânicas, lógica e arquitetura de software, bagagem que desenvolvi em projetos da área e em grandes empresas, como o Grupo RBS. Busco sempre criar soluções organizadas, fáceis de manter e super otimizadas." data-en="Hi! I'm Vittória, 20 years old, and a programmer focused on game development and interactive systems. I am currently studying Digital Games and building mechanics, logic, and software architecture, experience I gained in area projects and major companies like Grupo RBS. I always strive to create organized, maintainable, and highly optimized solutions.">
                   Oi! Sou a Vittória, tenho 20 anos e sou programadora focada no desenvolvimento de jogos e sistemas interativos. Atualmente curso Jogos Digitais e atuo construindo mecânicas, lógica e arquitetura de software, bagagem que desenvolvi em projetos da área e em grandes empresas, como o Grupo RBS. Busco sempre criar soluções organizadas, fáceis de manter e super otimizadas.
                 </p>
                 <div class="skills-list" aria-label="Habilidades">
@@ -261,28 +273,28 @@ const skills = [
             <!-- SEÇÃO FORMAÇÃO E EXPERIÊNCIA -->
             <div class="career-container">
               <div class="career-block">
-                <h3 class="career-heading">FORMAÇÃO ACADÊMICA</h3>
+                <h3 class="career-heading" data-i18n="careerAcademic">FORMAÇÃO ACADÊMICA</h3>
                 <div class="education-card interactive hover-sound">
                   <div class="education-content-left">
                     <img src={education.logo} alt={education.degree} class="experience-logo-img" loading="lazy" />
                     <div class="experience-text-stack">
-                      <strong class="education-title">{education.degree}</strong>
-                      <p class="education-desc">{education.description}</p>
+                      <strong class="education-title" data-pt={education.degree} data-en={education.degreeEn}>{education.degree}</strong>
+                      <p class="education-desc" data-pt={education.description} data-en={education.descriptionEn}>{education.description}</p>
                     </div>
                   </div>
-                  <span class="graduation-date">{education.prediction}</span>
+                  <span class="graduation-date" data-pt={education.prediction} data-en={education.predictionEn}>{education.prediction}</span>
                 </div>
               </div>
 
               <div class="career-block">
-                <h3 class="career-heading">EXPERIÊNCIA PROFISSIONAL</h3>
+                <h3 class="career-heading" data-i18n="careerExp">EXPERIÊNCIA PROFISSIONAL</h3>
                 <div class="experience-grid">
                   {experiences.map((exp) => (
                     <div class="experience-card interactive hover-sound">
                       <img src={exp.logo} alt={exp.company} class="experience-logo-img" loading="lazy" />
                       <div class="experience-text-stack">
                         <strong class="experience-company">{exp.company}</strong>
-                        <span class="experience-role">{exp.role}</span>
+                        <span class="experience-role" data-pt={exp.role} data-en={exp.roleEn}>{exp.role}</span>
                       </div>
                     </div>
                   ))}
@@ -293,10 +305,10 @@ const skills = [
 
           <!-- SEÇÃO PROJETOS -->
           <section id="projetos" class="projects-section" aria-labelledby="projects-heading">
-            <span class="normal-label projects-label">Projetos selecionados</span>
+            <span class="normal-label projects-label" data-i18n="projLabel">Projetos selecionados</span>
             <div class="projects-heading-row">
-              <h2 id="projects-heading" class="projects-heading">PROJETOS</h2>
-              <span class="projects-count">{projects.length} PROJETOS</span>
+              <h2 id="projects-heading" class="projects-heading" data-i18n="projHeading">PROJETOS</h2>
+              <span class="projects-count"><span id="proj-count-num">{projects.length}</span> <span data-i18n="projCount">PROJETOS</span></span>
             </div>
 
             <div class="project-folder hover-sound" data-nosub="true">
@@ -333,16 +345,16 @@ const skills = [
                         <p class="project-date">{project.date}</p>
                         <h3>{project.title}</h3>
                       </div>
-                      <p class="project-description">{project.description}</p>
+                      <p class="project-description" data-pt={project.description} data-en={project.descriptionEn}>{project.description}</p>
                       <div class="project-links">
                         {project.links?.github && (
-                          <a class="interactive" href={project.links.github} target="_blank" rel="noopener noreferrer">REPOSITÓRIO GITHUB</a>
+                          <a class="interactive" href={project.links.github} target="_blank" rel="noopener noreferrer" data-i18n="repoGithub">REPOSITÓRIO GITHUB</a>
                         )}
                         {project.links?.itchio && (
-                          <a class="interactive" href={project.links.itchio} target="_blank" rel="noopener noreferrer">PÁGINA ITCH.IO</a>
+                          <a class="interactive" href={project.links.itchio} target="_blank" rel="noopener noreferrer" data-i18n="pageItchio">PÁGINA ITCH.IO</a>
                         )}
                         {project.links?.steam && (
-                          <a class="interactive" href={project.links.steam} target="_blank" rel="noopener noreferrer">PÁGINA STEAM</a>
+                          <a class="interactive" href={project.links.steam} target="_blank" rel="noopener noreferrer" data-i18n="pageSteam">PÁGINA STEAM</a>
                         )}
                       </div>
                     </div>
@@ -386,7 +398,7 @@ const skills = [
                             )}
                           </>
                         ) : (
-                          <div class="project-no-image">Mídia indisponível</div>
+                          <div class="project-no-image" data-i18n="noMedia">Mídia indisponível</div>
                         )}
                       </div>
 
@@ -402,18 +414,20 @@ const skills = [
 
           <!-- SEÇÃO CONTATO -->
           <section id="contato" class="contact-section" aria-labelledby="contact-heading">
-            <div class="section-pill interactive hover-sound">VAMOS CONVERSAR</div>
-            <h2 id="contact-heading">Gostou do meu trabalho? Entre em contato!</h2>
+            <div class="section-pill interactive hover-sound" data-i18n="contactPill">VAMOS CONVERSAR</div>
+            <h2 id="contact-heading" data-i18n="contactHeading">Gostou do meu trabalho? Entre em contato!</h2>
             <div class="contact-actions">
-              <a class="contact-email interactive hover-sound" href="mailto:vcschroer@gmail.com">E-MAIL</a>
-              <a class="contact-phone interactive hover-sound" href="https://wa.me/5551992124694?text=Olá!%20Vi%20seu%20portfólio%20e%20quero%20conversar.">TELEFONE</a>          
-           </div>
+              <a class="contact-email interactive hover-sound" href="mailto:vcschroer@gmail.com" data-i18n="emailBtn">E-MAIL</a>
+              <a class="contact-phone interactive hover-sound" href="https://wa.me/5551992124694?text=Olá!%20Vi%20seu%20portfólio%20e%20quero%20conversar." data-i18n="phoneBtn">TELEFONE</a>          
+              <a class="contact-email interactive hover-sound" href="https://www.linkedin.com/in/vcschroer" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+              <a class="contact-phone interactive hover-sound" href="https://github.com/vcschroer" target="_blank" rel="noopener noreferrer">GITHUB</a>
+            </div>
           </section>
         </div>
       </main>
     </div>
 
-    <!-- SCRIPT DE ÁUDIO E INTERAÇÕES -->
+    <!-- SCRIPT DE ÁUDIO, INTERAÇÕES E TRADUÇÃO -->
     <script>
       let audioCtx = null;
       let isPlayingSound = false;
@@ -455,6 +469,84 @@ const skills = [
           isPlayingSound = false;
         }
       }
+
+      const translations = {
+        pt: {
+          navInicio: "INÍCIO",
+          navSobre: "SOBRE",
+          navProjetos: "PROJETOS",
+          navContato: "CONTATO",
+          heroTitleMain: "PORTFÓLIO",
+          tagDev: "PROGRAMADORA",
+          tagLocation: "BRASIL, RS",
+          heroTagline: "Programo jogos, sites e experiências digitais.",
+          contactBtn: "ENTRE EM CONTATO",
+          aboutPill: "QUEM SOU EU?",
+          careerAcademic: "FORMAÇÃO ACADÊMICA",
+          careerExp: "EXPERIÊNCIA PROFISSIONAL",
+          projLabel: "Projetos selecionados",
+          projHeading: "PROJETOS",
+          projCount: "PROJETOS",
+          repoGithub: "REPOSITÓRIO GITHUB",
+          pageItchio: "PÁGINA ITCH.IO",
+          pageSteam: "PÁGINA STEAM",
+          noMedia: "Mídia indisponível",
+          contactPill: "VAMOS CONVERSAR",
+          contactHeading: "Gostou do meu trabalho? Entre em contato!",
+          emailBtn: "E-MAIL",
+          phoneBtn: "TELEFONE"
+        },
+        en: {
+          navInicio: "HOME",
+          navSobre: "ABOUT",
+          navProjetos: "PROJECTS",
+          navContato: "CONTACT",
+          heroTitleMain: "PORTFOLIO",
+          tagDev: "PROGRAMMER",
+          tagLocation: "BRAZIL, RS",
+          heroTagline: "I program games, websites, and digital experiences.",
+          contactBtn: "GET IN TOUCH",
+          aboutPill: "WHO AM I?",
+          careerAcademic: "ACADEMIC BACKGROUND",
+          careerExp: "PROFESSIONAL EXPERIENCE",
+          projLabel: "Selected projects",
+          projHeading: "PROJECTS",
+          projCount: "PROJECTS",
+          repoGithub: "GITHUB REPOSITORY",
+          pageItchio: "ITCH.IO PAGE",
+          pageSteam: "STEAM PAGE",
+          noMedia: "Media unavailable",
+          contactPill: "LET'S TALK",
+          contactHeading: "Liked my work? Get in touch!",
+          emailBtn: "EMAIL",
+          phoneBtn: "PHONE"
+        }
+      };
+
+      function setLanguage(lang) {
+        document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+        
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+
+        document.querySelectorAll('[data-pt][data-en]').forEach((el) => {
+          el.textContent = el.getAttribute(`data-${lang}`);
+        });
+      }
+
+      document.getElementById('btn-pt').addEventListener('click', () => {
+        playPopSound();
+        setLanguage('pt');
+      });
+
+      document.getElementById('btn-en').addEventListener('click', () => {
+        playPopSound();
+        setLanguage('en');
+      });
 
       const projectTabs = Array.from(document.querySelectorAll('.tab-btn'));
       const projectPanels = Array.from(document.querySelectorAll('.project-panel'));
@@ -506,7 +598,8 @@ const skills = [
           if (!img.isConnected) return;
           const fallback = document.createElement('div');
           fallback.className = 'project-no-image';
-          fallback.textContent = 'Mídia indisponível';
+          fallback.setAttribute('data-i18n', 'noMedia');
+          fallback.textContent = document.documentElement.lang === 'en' ? 'Media unavailable' : 'Mídia indisponível';
           img.replaceWith(fallback);
         };
         img.addEventListener('error', showImageFallback, { once: true });
@@ -563,7 +656,7 @@ const skills = [
         background: #9299a6;
       }
       a { color: inherit; text-decoration: none; }
-      button { font: inherit; }
+      button { font: inherit; background: none; border: none; cursor: pointer; }
       img, iframe, video { display: block; width: 100%; height: 100%; object-fit: cover; border: none; }
       [hidden] { display: none !important; }
 
